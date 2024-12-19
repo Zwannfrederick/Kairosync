@@ -1,0 +1,16 @@
+C:\Users\emirk\source\repos\sql-project\sql-project\bin\Debug\net8.0-windows\sql-project.exe
+C:\Users\emirk\source\repos\sql-project\sql-project\bin\Debug\net8.0-windows\sql-project.deps.json
+C:\Users\emirk\source\repos\sql-project\sql-project\bin\Debug\net8.0-windows\sql-project.runtimeconfig.json
+C:\Users\emirk\source\repos\sql-project\sql-project\bin\Debug\net8.0-windows\sql-project.dll
+C:\Users\emirk\source\repos\sql-project\sql-project\bin\Debug\net8.0-windows\sql-project.pdb
+C:\Users\emirk\source\repos\sql-project\sql-project\obj\Debug\net8.0-windows\sql_project.Form1.resources
+C:\Users\emirk\source\repos\sql-project\sql-project\obj\Debug\net8.0-windows\sql-project.csproj.GenerateResource.cache
+C:\Users\emirk\source\repos\sql-project\sql-project\obj\Debug\net8.0-windows\sql-project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\emirk\source\repos\sql-project\sql-project\obj\Debug\net8.0-windows\sql-project.AssemblyInfoInputs.cache
+C:\Users\emirk\source\repos\sql-project\sql-project\obj\Debug\net8.0-windows\sql-project.AssemblyInfo.cs
+C:\Users\emirk\source\repos\sql-project\sql-project\obj\Debug\net8.0-windows\sql-project.csproj.CoreCompileInputs.cache
+C:\Users\emirk\source\repos\sql-project\sql-project\obj\Debug\net8.0-windows\sql-project.dll
+C:\Users\emirk\source\repos\sql-project\sql-project\obj\Debug\net8.0-windows\refint\sql-project.dll
+C:\Users\emirk\source\repos\sql-project\sql-project\obj\Debug\net8.0-windows\sql-project.pdb
+C:\Users\emirk\source\repos\sql-project\sql-project\obj\Debug\net8.0-windows\sql-project.genruntimeconfig.cache
+C:\Users\emirk\source\repos\sql-project\sql-project\obj\Debug\net8.0-windows\ref\sql-project.dll
