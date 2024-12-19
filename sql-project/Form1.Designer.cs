@@ -45,6 +45,10 @@
             label2 = new Label();
             textBox2 = new TextBox();
             groupBox2 = new GroupBox();
+            dateTimePicker5 = new DateTimePicker();
+            label19 = new Label();
+            textBox8 = new TextBox();
+            label18 = new Label();
             button1 = new Button();
             button2 = new Button();
             button7 = new Button();
@@ -77,10 +81,6 @@
             label13 = new Label();
             label15 = new Label();
             dataGridView3 = new DataGridView();
-            textBox8 = new TextBox();
-            label18 = new Label();
-            label19 = new Label();
-            dateTimePicker5 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -270,6 +270,39 @@
             groupBox2.TabIndex = 6;
             groupBox2.TabStop = false;
             groupBox2.Text = "Kişi Yöneticisi";
+            // 
+            // dateTimePicker5
+            // 
+            dateTimePicker5.Location = new Point(6, 341);
+            dateTimePicker5.Name = "dateTimePicker5";
+            dateTimePicker5.Size = new Size(210, 27);
+            dateTimePicker5.TabIndex = 27;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(6, 318);
+            label19.Name = "label19";
+            label19.Size = new Size(98, 20);
+            label19.TabIndex = 26;
+            label19.Text = "Doğum Tarihi";
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(6, 288);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(236, 27);
+            textBox8.TabIndex = 25;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(6, 265);
+            label18.Name = "label18";
+            label18.Size = new Size(125, 20);
+            label18.TabIndex = 24;
+            label18.Text = "Telefon Numarası";
+            label18.Click += label18_Click;
             // 
             // button1
             // 
@@ -561,39 +594,6 @@
             dataGridView3.Size = new Size(449, 350);
             dataGridView3.TabIndex = 15;
             // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(6, 288);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(236, 27);
-            textBox8.TabIndex = 25;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Location = new Point(6, 265);
-            label18.Name = "label18";
-            label18.Size = new Size(125, 20);
-            label18.TabIndex = 24;
-            label18.Text = "Telefon Numarası";
-            label18.Click += label18_Click;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Location = new Point(6, 318);
-            label19.Name = "label19";
-            label19.Size = new Size(98, 20);
-            label19.TabIndex = 26;
-            label19.Text = "Doğum Tarihi";
-            // 
-            // dateTimePicker5
-            // 
-            dateTimePicker5.Location = new Point(6, 341);
-            dateTimePicker5.Name = "dateTimePicker5";
-            dateTimePicker5.Size = new Size(210, 27);
-            dateTimePicker5.TabIndex = 27;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -605,6 +605,7 @@
             Controls.Add(groupBox1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
