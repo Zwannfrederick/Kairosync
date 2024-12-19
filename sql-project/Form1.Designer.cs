@@ -97,6 +97,8 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(979, 317);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
+            dataGridView1.CellEnter += dataGridView1_CellEnter;
             // 
             // label1
             // 
@@ -348,6 +350,7 @@
             dataGridView2.RowHeadersWidth = 51;
             dataGridView2.Size = new Size(449, 351);
             dataGridView2.TabIndex = 16;
+            dataGridView2.CellEnter += dataGridView2_CellEnter;
             // 
             // label9
             // 
@@ -391,9 +394,10 @@
             label6.AutoSize = true;
             label6.Location = new Point(6, 212);
             label6.Name = "label6";
-            label6.Size = new Size(56, 20);
+            label6.Size = new Size(52, 20);
             label6.TabIndex = 5;
-            label6.Text = "E- mail";
+            label6.Text = "E-Mail";
+            label6.Click += label6_Click;
             // 
             // label5
             // 
