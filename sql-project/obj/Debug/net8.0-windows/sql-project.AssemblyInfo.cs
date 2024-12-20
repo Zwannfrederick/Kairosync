@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sql-project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1977805d9a91f12e9c627566c28a06658e4c5f58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e76d2b803c06ee1354b38bb5bc75947788a20a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("sql-project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sql-project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

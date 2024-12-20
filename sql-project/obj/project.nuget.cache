@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "r0RqMASGuek=",
+  "dgSpecHash": "pW6cjWsKKBE=",
   "success": true,
   "projectFilePath": "C:\\Users\\LENOVO\\OneDrive\\Masaüstü\\Personal\\Coding Examples\\Kairosync\\sql-project\\sql-project.csproj",
   "expectedPackageFiles": [
@@ -37,16 +37,5 @@
     "C:\\Users\\LENOVO\\.nuget\\packages\\system.windows.extensions\\8.0.0\\system.windows.extensions.8.0.0.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\zstdsharp.port\\0.8.0\\zstdsharp.port.0.8.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "'System.Text.Json' 8.0.4 paketinde önem derecesi yüksek olan bilinen bir https://github.com/advisories/GHSA-8g4q-xg66-9fp4 güvenlik açığı var",
-      "libraryId": "System.Text.Json",
-      "targetGraphs": [
-        "net8.0-windows7.0"
-      ]
-    }
-  ]
+  "logs": []
 }

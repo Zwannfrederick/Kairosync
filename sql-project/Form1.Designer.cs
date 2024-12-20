@@ -32,6 +32,8 @@
             label1 = new Label();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
+            label21 = new Label();
+            label20 = new Label();
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
@@ -81,8 +83,6 @@
             label13 = new Label();
             label15 = new Label();
             dataGridView3 = new DataGridView();
-            label20 = new Label();
-            label21 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -147,6 +147,26 @@
             groupBox1.Text = "Proje Yöneticisi";
             groupBox1.Enter += groupBox1_Enter;
             // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.ForeColor = Color.Crimson;
+            label21.Location = new Point(303, 267);
+            label21.Name = "label21";
+            label21.Size = new Size(58, 20);
+            label21.TabIndex = 21;
+            label21.Text = "label21";
+            label21.Click += label21_Click;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(303, 247);
+            label20.Name = "label20";
+            label20.Size = new Size(105, 20);
+            label20.TabIndex = 20;
+            label20.Text = "Gecikme Tarihi";
+            // 
             // button5
             // 
             button5.Location = new Point(338, 314);
@@ -190,6 +210,7 @@
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(210, 27);
             dateTimePicker2.TabIndex = 15;
+            dateTimePicker2.ValueChanged += dateTimePicker2_ValueChanged;
             // 
             // label12
             // 
@@ -283,6 +304,7 @@
             dateTimePicker5.Name = "dateTimePicker5";
             dateTimePicker5.Size = new Size(210, 27);
             dateTimePicker5.TabIndex = 27;
+            dateTimePicker5.ValueChanged += dateTimePicker5_ValueChanged;
             // 
             // label19
             // 
@@ -385,6 +407,7 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(236, 27);
             textBox5.TabIndex = 8;
+            textBox5.TextChanged += textBox5_TextChanged;
             // 
             // textBox3
             // 
@@ -601,26 +624,6 @@
             dataGridView3.RowHeadersWidth = 51;
             dataGridView3.Size = new Size(449, 350);
             dataGridView3.TabIndex = 15;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new Point(303, 247);
-            label20.Name = "label20";
-            label20.Size = new Size(105, 20);
-            label20.TabIndex = 20;
-            label20.Text = "Gecikme Tarihi";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.ForeColor = Color.Crimson;
-            label21.Location = new Point(303, 267);
-            label21.Name = "label21";
-            label21.Size = new Size(58, 20);
-            label21.TabIndex = 21;
-            label21.Text = "label21";
-            label21.Click += label21_Click;
             // 
             // Form1
             // 
