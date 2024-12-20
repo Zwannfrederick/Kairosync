@@ -1,5 +1,7 @@
 using System.Data;
 using MySql.Data.MySqlClient;
+using System;
+using System.Windows.Forms;
 
 namespace sql_project
 {
@@ -10,12 +12,37 @@ namespace sql_project
         MySqlDataAdapter adapter;
         DataTable dt;
 
+        private void gecikme()
+        {
+            
+            if (int.TryParse(label21.Text, out int gecikme) && gecikme > 0)
+            {
+                label21.Visible = true;
+                label20.Visible = true;
+            }
+            else
+            {
+                label21.Visible = false;
+                label20.Visible = false;
+            }
+        } 
+
         void calisan()
         {
             dt = new DataTable();
             conn.Open();
-            adapter = new MySqlDataAdapter("SELECT * FROM çalýþanlar" , conn);
+            adapter = new MySqlDataAdapter("SELECT * FROM çalýþanlar", conn);
             dataGridView2.DataSource = dt;
+            adapter.Fill(dt);
+            conn.Close();
+        }
+
+        void projeler()
+        {
+            dt = new DataTable();
+            conn.Open();
+            adapter = new MySqlDataAdapter("SELECT * FROM projeler", conn);
+            dataGridView1.DataSource = dt;
             adapter.Fill(dt);
             conn.Close();
         }
@@ -78,6 +105,7 @@ namespace sql_project
         private void Form1_Load(object sender, EventArgs e)
         {
             calisan();
+            projeler();
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -87,7 +115,12 @@ namespace sql_project
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-
+            textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            richTextBox1.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            dateTimePicker1.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[2].Value.ToString());
+            dateTimePicker2.Value = DateTime.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+            label21.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            gecikme();
         }
 
         private void dataGridView2_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -99,6 +132,7 @@ namespace sql_project
                 textBox6.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
                 textBox8.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
                 dateTimePicker5.Value = DateTime.Parse(dataGridView2.CurrentRow.Cells[5].Value.ToString());
+
             }
             catch
             {
@@ -107,6 +141,11 @@ namespace sql_project
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
         {
 
         }
