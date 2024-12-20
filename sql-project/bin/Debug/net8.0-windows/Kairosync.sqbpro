@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="Kairosync.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3082"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="görevler" custom_title="0" dock_id="2" table="4,9:maingörevler"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000011800ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">CREATE TABLE projeler (
+  ProjeID INTEGER PRIMARY KEY AUTOINCREMENT,
+  Ad TEXT NOT NULL,
+  BaşlangıçTarihi DATETIME NOT NULL,
+  BitişTarihi DATETIME DEFAULT NULL,
+  Gecikme INTEGER DEFAULT 0,
+  aciklama TEXT
+);
+
+CREATE TABLE çalışanlar (
+  ÇalışanID INTEGER PRIMARY KEY AUTOINCREMENT,
+  Ad TEXT NOT NULL,
+  Soyad TEXT NOT NULL,
+  Email TEXT NOT NULL UNIQUE,
+  TelNo TEXT NOT NULL UNIQUE,
+  DoğumTarihi DATE NOT NULL
+);
+
+CREATE TABLE görevler (
+  GörevID INTEGER PRIMARY KEY AUTOINCREMENT,
+  Ad TEXT NOT NULL,
+  BaşlangıçTarihi DATETIME NOT NULL,
+  BitişTarihi DATETIME DEFAULT NULL,
+  AdamGün REAL NOT NULL,
+  Durum TEXT CHECK(Durum IN ('Tamamlanacak', 'Devam Ediyor', 'Tamamlandı')) NOT NULL,
+  ProjeID INTEGER DEFAULT NULL,
+  ÇalışanID INTEGER DEFAULT NULL,
+  FOREIGN KEY (ProjeID) REFERENCES projeler (ProjeID) ON DELETE CASCADE,
+  FOREIGN KEY (ÇalışanID) REFERENCES çalışanlar (ÇalışanID) ON DELETE SET NULL
+);
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

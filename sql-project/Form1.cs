@@ -1,37 +1,21 @@
-using System.Data;
-using MySql.Data.MySqlClient;
+using System.Data; 
 using System;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Data.SQLite;
 
 namespace sql_project
 {
     public partial class Form1 : Form
     {
-        MySqlConnection conn = new MySqlConnection("Server=localhost;Database=kairosync;Uid=root;Pwd=1q2q3q4q5Q+-");
-        MySqlCommand cmd;
-        MySqlDataAdapter adapter;
-        DataTable dt;
 
-
-        public void arama(string searching, string table, string searched)
+        public void arama(string searching, string table, string searched, DataGridView dataGridView)
         {
             try
             {
-                // Tablo ve sütun adlarýný doðrudan sorguya yazýyoruz
-                string query = $"SELECT * FROM {table} WHERE {searched} LIKE @searching";
-
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                // Parametreyi ekliyoruz, sadece deðer parametre olarak geçebilir
-                cmd.Parameters.AddWithValue("@searching", "%" + searching + "%");
-
-                adapter = new MySqlDataAdapter(cmd);
-
-                dt = new DataTable();
-                adapter.Fill(dt);
-
-                dataGridView1.DataSource = dt;
+                // Tablo ve sütun adlarýný sorguya yazýyoruz
+                string query = $"SELECT * FROM {table} WHERE {searched} LIKE '%{searching}%'";
+                dataGridView.DataSource = CRUD.list(query);
             }
             catch (Exception ex)
             {
@@ -54,7 +38,7 @@ namespace sql_project
             }
         }
 
-        void SetDateTimePickerFromCellValue(DataGridView dataGridView, int rowIndex, int columnIndex, DateTimePicker dateTimePicker)
+        void TarihNuller(DataGridView dataGridView, int rowIndex, int columnIndex, DateTimePicker dateTimePicker)
         {
             var cellValue = dataGridView.Rows[rowIndex].Cells[columnIndex].Value?.ToString();
 
@@ -74,22 +58,26 @@ namespace sql_project
 
         void calisan()
         {
-            dt = new DataTable();
-            conn.Open();
-            adapter = new MySqlDataAdapter("SELECT * FROM çalýþanlar", conn);
-            dataGridView2.DataSource = dt;
-            adapter.Fill(dt);
-            conn.Close();
+            try
+            {
+                dataGridView2.DataSource = CRUD.list("SELECT * FROM çalýþanlar");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
         }
 
         void projeler()
         {
-            dt = new DataTable();
-            conn.Open();
-            adapter = new MySqlDataAdapter("SELECT * FROM projeler", conn);
-            dataGridView1.DataSource = dt;
-            adapter.Fill(dt);
-            conn.Close();
+            try
+            {
+                dataGridView1.DataSource = CRUD.list("SELECT * FROM projeler");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
         }
 
         public Form1()
@@ -114,7 +102,7 @@ namespace sql_project
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            arama(textBox1.Text, "projeler", "Ad");
+            arama(textBox1.Text, "projeler", "Ad", dataGridView1);
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -162,8 +150,8 @@ namespace sql_project
         {
             textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             richTextBox1.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            SetDateTimePickerFromCellValue(dataGridView1, dataGridView1.CurrentRow.Index, 2, dateTimePicker1);
-            SetDateTimePickerFromCellValue(dataGridView1, dataGridView1.CurrentRow.Index, 3, dateTimePicker2);
+            TarihNuller(dataGridView1, dataGridView1.CurrentRow.Index, 2, dateTimePicker1);
+            TarihNuller(dataGridView1, dataGridView1.CurrentRow.Index, 3, dateTimePicker2);
             label21.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             gecikme();
         }
@@ -176,7 +164,7 @@ namespace sql_project
                 textBox4.Text = dataGridView2.CurrentRow.Cells[2].Value.ToString();
                 textBox6.Text = dataGridView2.CurrentRow.Cells[3].Value.ToString();
                 textBox8.Text = dataGridView2.CurrentRow.Cells[4].Value.ToString();
-                SetDateTimePickerFromCellValue(dataGridView2, dataGridView2.CurrentRow.Index, 5, dateTimePicker5);
+                TarihNuller(dataGridView2, dataGridView2.CurrentRow.Index, 5, dateTimePicker5);
 
 
             }
@@ -208,7 +196,7 @@ namespace sql_project
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            arama(textBox5.Text, "çalýþanlar", "Ad");
+            arama(textBox5.Text, "çalýþanlar", "Ad", dataGridView2);
         }
 
         private void button3_Click(object sender, EventArgs e)
