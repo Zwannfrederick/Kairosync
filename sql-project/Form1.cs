@@ -2,6 +2,7 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using System;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace sql_project
 {
@@ -208,6 +209,52 @@ namespace sql_project
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
             arama(textBox5.Text, "çalýþanlar", "Ad");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            richTextBox1.ReadOnly = false;
+            textBox2.ReadOnly = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            richTextBox1.ReadOnly = true;
+            textBox2.ReadOnly = true;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            textBox3.ReadOnly = false;
+            textBox4.ReadOnly = false;
+            textBox6.ReadOnly = false;
+            textBox8.ReadOnly = false;
+            dateTimePicker5.Enabled = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox3.ReadOnly = true;
+            textBox4.ReadOnly = true;
+            textBox6.ReadOnly = true;
+            textBox8.ReadOnly = true;
+            dateTimePicker5.Enabled = false;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            textBox9.ReadOnly = false;
+            richTextBox2.ReadOnly = false;
+            dateTimePicker4.Enabled = true;
+            dateTimePicker3.Enabled = true;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            textBox9.ReadOnly = true;
+            richTextBox2.ReadOnly = true;
+            dateTimePicker4.Enabled = false;
+            dateTimePicker3.Enabled = false;
         }
     }
 }
