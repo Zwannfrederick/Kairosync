@@ -14,7 +14,7 @@ namespace sql_project
         {
             try
             {
-                // Tablo ve sütun adlarýný sorguya yazýyoruz
+                
                 string query = $"SELECT * FROM {table} WHERE {searched} LIKE '%{searching}%'";
                 dataGridView.DataSource = CRUD.list(query);
             }
@@ -24,6 +24,7 @@ namespace sql_project
             }
         }
 
+
         private void gecikme()
         {
             try
@@ -32,20 +33,20 @@ namespace sql_project
                 {
                     if (gecikme > 0)
                     {
-                        // Gecikme varsa gösterecek
+                        
                         label21.Visible = true;
                         label20.Visible = true;
                     }
                     else
                     {
-                        // Gecikme yoksa gizleyecek
+                        
                         label21.Visible = false;
                         label20.Visible = false;
                     }
                 }
                 else
                 {
-                    // Eðer gecikme deðeri okunamýyorsa gizle
+                    
                     label21.Visible = false;
                     label20.Visible = false;
                 }
@@ -72,9 +73,9 @@ namespace sql_project
                 }
                 else
                 {
-                    // Null deðer durumunda tarih seçiciye varsayýlan tarih atýyoruz
+                    
                     dateTimePicker.Value = DateTime.Now;
-                    dateTimePicker.Format = DateTimePickerFormat.Short; // Varsayýlan format
+                    dateTimePicker.Format = DateTimePickerFormat.Short; 
                 }
             }
             catch (Exception ex)
@@ -115,6 +116,15 @@ namespace sql_project
             }
         }
 
+        private void AyarlaDataGridView(DataGridView dataGridView)
+        {
+            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells; 
+            dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True; 
+            dataGridView.DefaultCellStyle.Font = new Font("Arial", 10); 
+            dataGridView.RowTemplate.Height = 30;
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+        }
         void projeler()
         {
             try
@@ -200,13 +210,13 @@ namespace sql_project
                         {
                             MessageBox.Show("Proje baþarýyla eklendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // Listeyi güncelle
+                            
                             projeler();
 
-                            // Alanlarý temizle
+                            
                             temizleProjeAlanlari();
 
-                            // Gecikme hesapla
+                            
                             gecikme();
                         }
                         else
@@ -246,9 +256,21 @@ namespace sql_project
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             calisan();
             projeler();
             görevler();
+
+            AyarlaDataGridView(dataGridView1);
+            AyarlaDataGridView(dataGridView2);
+            AyarlaDataGridView(dataGridView3);
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            AyarlaDataGridView(dataGridView1);
+            AyarlaDataGridView(dataGridView2);
+            AyarlaDataGridView(dataGridView3);
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -265,7 +287,7 @@ namespace sql_project
                 TarihNuller(dataGridView1, dataGridView1.CurrentRow.Index, 2, dateTimePicker1);
                 TarihNuller(dataGridView1, dataGridView1.CurrentRow.Index, 3, dateTimePicker2);
 
-                // Gecikme hesaplama
+                
                 var bitisTarihi = dataGridView1.CurrentRow.Cells["BitiþTarihi"].Value?.ToString();
                 if (!string.IsNullOrEmpty(bitisTarihi) && DateTime.TryParse(bitisTarihi, out DateTime parsedBitiþ))
                 {
@@ -384,38 +406,37 @@ namespace sql_project
         {
             try
             {
-                // Eðer ekleme ya da düzenleme modundaysa yalnýzca alanlarý temizle
+                
                 if (projeEklemeModu || projeDuzenlemeModu)
                 {
                     temizleProjeAlanlari();
                     return;
                 }
 
-                // Eðer bir satýr seçilmiþse
+                
                 if (dataGridView1.CurrentRow != null)
                 {
                     string projeID = dataGridView1.CurrentRow.Cells["ProjeID"].Value?.ToString();
 
                     if (!string.IsNullOrEmpty(projeID))
                     {
-                        // Onay penceresi
+                        
                         DialogResult dialogResult = MessageBox.Show("Bu projeyi silmek istediðinize emin misiniz?", "Silme Onayý", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                         if (dialogResult == DialogResult.Yes)
                         {
-                            // Silme iþlemi
+                           
                             int result = CRUD.sil("projeler", $"ProjeID = {projeID}");
                             if (result > 0)
                             {
                                 MessageBox.Show("Proje baþarýyla silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                                // Listeyi güncelle
                                 projeler();
 
-                                // Alanlarý temizle
+                                
                                 temizleProjeAlanlari();
 
-                                // Gecikmeyi sýfýrla
+                               
                                 label21.Text = "0";
                                 gecikme();
                             }
