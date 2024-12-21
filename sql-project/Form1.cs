@@ -142,6 +142,8 @@ namespace sql_project
                     richTextBox1.Clear();
                     textBox2.ReadOnly = false;
                     richTextBox1.ReadOnly = false;
+                    dateTimePicker1.Enabled = true;
+                    dateTimePicker2.Enabled = true;
                 }
                 else
                 {
@@ -173,6 +175,8 @@ namespace sql_project
                     richTextBox1.Clear();
                     textBox2.ReadOnly = true;
                     richTextBox1.ReadOnly = true;
+                    dateTimePicker1.Enabled = false;
+                    dateTimePicker2.Enabled = false;
                 }
             }
             catch (Exception ex)
