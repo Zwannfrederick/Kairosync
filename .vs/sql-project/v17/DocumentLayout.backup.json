@@ -7,8 +7,20 @@
       "RelativeMoniker": "D:0:0:{9F65F2C1-4E2C-41C8-8075-ED0035083EF8}|sql-project\\sql-project.csproj|solutionrelative:sql-project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F65F2C1-4E2C-41C8-8075-ED0035083EF8}|sql-project\\sql-project.csproj|c:\\users\\emirk\\onedrive\\masa\u00FCst\u00FC\\work\\kairosync\\sql-project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9F65F2C1-4E2C-41C8-8075-ED0035083EF8}|sql-project\\sql-project.csproj|C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9F65F2C1-4E2C-41C8-8075-ED0035083EF8}|sql-project\\sql-project.csproj|solutionrelative:sql-project\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F65F2C1-4E2C-41C8-8075-ED0035083EF8}|sql-project\\sql-project.csproj|c:\\users\\emirk\\onedrive\\masa\u00FCst\u00FC\\work\\kairosync\\sql-project\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F65F2C1-4E2C-41C8-8075-ED0035083EF8}|sql-project\\sql-project.csproj|solutionrelative:sql-project\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F65F2C1-4E2C-41C8-8075-ED0035083EF8}|sql-project\\sql-project.csproj|c:\\users\\emirk\\onedrive\\masa\u00FCst\u00FC\\work\\kairosync\\sql-project\\connect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F65F2C1-4E2C-41C8-8075-ED0035083EF8}|sql-project\\sql-project.csproj|solutionrelative:sql-project\\connect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F65F2C1-4E2C-41C8-8075-ED0035083EF8}|sql-project\\sql-project.csproj|c:\\users\\emirk\\onedrive\\masa\u00FCst\u00FC\\work\\kairosync\\sql-project\\crud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F65F2C1-4E2C-41C8-8075-ED0035083EF8}|sql-project\\sql-project.csproj|solutionrelative:sql-project\\crud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,20 +30,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\Form1.cs",
-              "RelativeDocumentMoniker": "sql-project\\Form1.cs",
-              "ToolTip": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\Form1.cs*",
-              "RelativeToolTip": "sql-project\\Form1.cs*",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAowJQAAAApAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Connect.cs",
+              "DocumentMoniker": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\Connect.cs",
+              "RelativeDocumentMoniker": "sql-project\\Connect.cs",
+              "ToolTip": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\Connect.cs",
+              "RelativeToolTip": "sql-project\\Connect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T14:46:54.387Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-20T18:41:38.116Z",
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -39,15 +51,52 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CRUD.cs",
+              "DocumentMoniker": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\CRUD.cs",
+              "RelativeDocumentMoniker": "sql-project\\CRUD.cs",
+              "ToolTip": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\CRUD.cs",
+              "RelativeToolTip": "sql-project\\CRUD.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T18:45:30.486Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Form1.cs [Tasar\u0131m]",
+              "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\Form1.cs",
               "RelativeDocumentMoniker": "sql-project\\Form1.cs",
-              "ToolTip": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\Form1.cs [Tasar\u0131m]*",
-              "RelativeToolTip": "sql-project\\Form1.cs [Tasar\u0131m]*",
+              "ToolTip": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\Form1.cs [Design]",
+              "RelativeToolTip": "sql-project\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-20T17:27:23.019Z",
-              "EditorCaption": " [Tasar\u0131m]"
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "sql-project\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\Form1.Designer.cs",
+              "RelativeToolTip": "sql-project\\Form1.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T17:27:09.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\Form1.cs",
+              "RelativeDocumentMoniker": "sql-project\\Form1.cs",
+              "ToolTip": "C:\\Users\\emirk\\OneDrive\\Masa\u00FCst\u00FC\\work\\Kairosync\\sql-project\\Form1.cs",
+              "RelativeToolTip": "sql-project\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T17:16:04.73Z",
+              "EditorCaption": ""
             }
           ]
         }

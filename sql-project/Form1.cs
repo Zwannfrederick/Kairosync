@@ -8,8 +8,9 @@ namespace sql_project
 {
     public partial class Form1 : Form
     {
-        Boolean projeEklemeModu = false;
-        Boolean projeDüzenlemeModu = false;
+
+        Boolean projeDuzenlemeModu = false;
+        Boolean projeEklemeModu=false;
         public void arama(string searching, string table, string searched, DataGridView dataGridView)
         {
             try
@@ -125,9 +126,9 @@ namespace sql_project
         {
             try
             {
-                if (!projeDüzenlemeModu)
+                if (!projeDuzenlemeModu)
                 {
-                    projeDüzenlemeModu = true;
+                    projeDuzenlemeModu = true;
                     textBox2.Clear();
                     richTextBox1.Clear();
                     textBox2.ReadOnly = false;
@@ -144,7 +145,7 @@ namespace sql_project
                         MessageBox.Show("TextBox veya RichTextBox boþ.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
-                    projeDüzenlemeModu = false;
+                    projeDuzenlemeModu = false;
                     textBox2.Clear();
                     richTextBox1.Clear();
                     textBox2.ReadOnly = true;
@@ -156,8 +157,6 @@ namespace sql_project
                 // Hata mesajýný kullanýcýya göster
                 MessageBox.Show($"Bir hata oluþtu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
