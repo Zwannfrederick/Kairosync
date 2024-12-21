@@ -8,7 +8,8 @@ namespace sql_project
 {
     public partial class Form1 : Form
     {
-
+        Boolean projeDuzenlemeModu = false;
+        Boolean projeEklemeModu = false;
         public void arama(string searching, string table, string searched, DataGridView dataGridView)
         {
             try
@@ -132,6 +133,39 @@ namespace sql_project
 
         private void button6_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (!projeEklemeModu)
+                {
+                    projeEklemeModu = true;
+                    textBox2.Clear();
+                    richTextBox1.Clear();
+                    textBox2.ReadOnly = false;
+                    richTextBox1.ReadOnly = false;
+                }
+                else
+                {
+                    if (!string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(richTextBox1.Text))
+                    {
+                        // Veritabanýna gönderme iþlemi burada yapýlýr
+                    }
+                    else
+                    {
+                        MessageBox.Show("TextBox veya RichTextBox boþ.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    projeEklemeModu = false;
+                    textBox2.Clear();
+                    richTextBox1.Clear();
+                    textBox2.ReadOnly = true;
+                    richTextBox1.ReadOnly = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Hata mesajýný kullanýcýya göster
+                MessageBox.Show($"Bir hata oluþtu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
