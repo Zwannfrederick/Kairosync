@@ -33,6 +33,10 @@
           "SelectedChildIndex": 5,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Connect.cs",
@@ -45,10 +49,6 @@
               "WhenOpened": "2024-12-20T18:41:38.116Z",
               "IsPinned": true,
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Document",
@@ -68,8 +68,8 @@
               "Title": "Form1.cs [Tasar\u0131m]",
               "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\sql-project\\Form1.cs",
               "RelativeDocumentMoniker": "sql-project\\Form1.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\sql-project\\Form1.cs [Tasar\u0131m]*",
-              "RelativeToolTip": "sql-project\\Form1.cs [Tasar\u0131m]*",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\sql-project\\Form1.cs [Tasar\u0131m]",
+              "RelativeToolTip": "sql-project\\Form1.cs [Tasar\u0131m]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-20T17:27:23.019Z",
               "EditorCaption": " [Tasar\u0131m]"
@@ -93,8 +93,8 @@
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\sql-project\\Form1.cs",
               "RelativeDocumentMoniker": "sql-project\\Form1.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\sql-project\\Form1.cs*",
-              "RelativeToolTip": "sql-project\\Form1.cs*",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\sql-project\\Form1.cs",
+              "RelativeToolTip": "sql-project\\Form1.cs",
               "ViewState": "AgIAADgAAAAAAAAAAAAuwD0AAACIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-20T17:16:04.73Z",
