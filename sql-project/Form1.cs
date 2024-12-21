@@ -55,7 +55,17 @@ namespace sql_project
             }
         }
 
-
+        void görevler()
+        {
+            try
+            {
+                dataGridView3.DataSource = CRUD.list("SELECT GörevID, Ad, BaþlangýçTarihi, BitiþTarihi, AdamGün, Durum FROM görevler;");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
+        }
         void calisan()
         {
             try
@@ -139,6 +149,7 @@ namespace sql_project
         {
             calisan();
             projeler();
+            görevler();
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -243,6 +254,11 @@ namespace sql_project
             richTextBox2.ReadOnly = true;
             dateTimePicker4.Enabled = false;
             dateTimePicker3.Enabled = false;
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
