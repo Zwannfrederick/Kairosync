@@ -8,9 +8,8 @@ namespace sql_project
 {
     public partial class Form1 : Form
     {
-
-        Boolean projeDuzenlemeModu = false;
-        Boolean projeEklemeModu=false;
+        Boolean projeEklemeModu = false;
+        Boolean projeDüzenlemeModu = false;
         public void arama(string searching, string table, string searched, DataGridView dataGridView)
         {
             try
@@ -57,7 +56,17 @@ namespace sql_project
             }
         }
 
-
+        void görevler()
+        {
+            try
+            {
+                dataGridView3.DataSource = CRUD.list("SELECT GörevID, Ad, BaþlangýçTarihi, BitiþTarihi, AdamGün, Durum FROM görevler;");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
+        }
         void calisan()
         {
             try
@@ -126,9 +135,9 @@ namespace sql_project
         {
             try
             {
-                if (!projeDuzenlemeModu)
+                if (!projeDüzenlemeModu)
                 {
-                    projeDuzenlemeModu = true;
+                    projeDüzenlemeModu = true;
                     textBox2.Clear();
                     richTextBox1.Clear();
                     textBox2.ReadOnly = false;
@@ -145,7 +154,7 @@ namespace sql_project
                         MessageBox.Show("TextBox veya RichTextBox boþ.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
-                    projeDuzenlemeModu = false;
+                    projeDüzenlemeModu = false;
                     textBox2.Clear();
                     richTextBox1.Clear();
                     textBox2.ReadOnly = true;
@@ -157,6 +166,8 @@ namespace sql_project
                 // Hata mesajýný kullanýcýya göster
                 MessageBox.Show($"Bir hata oluþtu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -173,6 +184,7 @@ namespace sql_project
         {
             calisan();
             projeler();
+            görevler();
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -277,6 +289,11 @@ namespace sql_project
             richTextBox2.ReadOnly = true;
             dateTimePicker4.Enabled = false;
             dateTimePicker3.Enabled = false;
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
