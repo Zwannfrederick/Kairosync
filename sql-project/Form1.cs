@@ -147,7 +147,21 @@ namespace sql_project
                 {
                     if (!string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(richTextBox1.Text))
                     {
-                        // Veritabanýna gönderme iþlemi burada yapýlýr
+                        // Veritabanýna ekleme iþlemi
+                        List<string> columns = new List<string> { "Ad", "Açýklama" };
+                        List<object> values = new List<object> { textBox2.Text, richTextBox1.Text };
+
+                        int result = CRUD.ekle("projeler", columns, values);
+
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Proje baþarýyla eklendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            projeler(); // Listeyi güncelle
+                        }
+                        else
+                        {
+                            MessageBox.Show("Proje eklenemedi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
@@ -166,7 +180,6 @@ namespace sql_project
                 // Hata mesajýný kullanýcýya göster
                 MessageBox.Show($"Bir hata oluþtu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
