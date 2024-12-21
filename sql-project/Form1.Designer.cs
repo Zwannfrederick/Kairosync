@@ -175,6 +175,7 @@
             button5.TabIndex = 19;
             button5.Text = "Sil";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 

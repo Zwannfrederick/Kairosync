@@ -32,6 +32,31 @@ namespace sql_project
             return dt;
         }
 
+        public static int sil(string table, string condition)
+        {
+            int result = 0;
+            try
+            {
+
+                Connect.conn.Open();
+                string query = $"DELETE FROM {table} WHERE {condition}";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, Connect.conn))
+                {
+                    result = cmd.ExecuteNonQuery();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Silme işlemi sırasında bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {   
+                Connect.conn.Close();
+            }
+            return result;
+        }
+
         public static int ekle(string tableName, List<string> columnNames, List<object> values)
         {
             if (columnNames.Count != values.Count)
@@ -50,14 +75,12 @@ namespace sql_project
                 {
                     Connect.conn.Open();
 
-                    // Parametreleri ekle
                     for (int i = 0; i < columnNames.Count; i++)
                     {
                         cmd.Parameters.AddWithValue("@" + columnNames[i], values[i] ?? DBNull.Value);
                     }
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected; // Eklenen satır sayısı
+                    return cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
@@ -70,5 +93,6 @@ namespace sql_project
                 }
             }
         }
+
     }
 }

@@ -26,35 +26,71 @@ namespace sql_project
 
         private void gecikme()
         {
-
-            if (int.TryParse(label21.Text, out int gecikme) && gecikme > 0)
+            try
             {
-                label21.Visible = true;
-                label20.Visible = true;
+                if (int.TryParse(label21.Text, out int gecikme))
+                {
+                    if (gecikme > 0)
+                    {
+                        // Gecikme varsa gösterecek
+                        label21.Visible = true;
+                        label20.Visible = true;
+                    }
+                    else
+                    {
+                        // Gecikme yoksa gizleyecek
+                        label21.Visible = false;
+                        label20.Visible = false;
+                    }
+                }
+                else
+                {
+                    // Eðer gecikme deðeri okunamýyorsa gizle
+                    label21.Visible = false;
+                    label20.Visible = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
+                MessageBox.Show($"Gecikme kontrolü sýrasýnda bir hata oluþtu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 label21.Visible = false;
                 label20.Visible = false;
             }
         }
 
+
         void TarihNuller(DataGridView dataGridView, int rowIndex, int columnIndex, DateTimePicker dateTimePicker)
         {
-            var cellValue = dataGridView.Rows[rowIndex].Cells[columnIndex].Value?.ToString();
+            try
+            {
+                var cellValue = dataGridView.Rows[rowIndex].Cells[columnIndex].Value?.ToString();
 
-            if (!string.IsNullOrEmpty(cellValue) && DateTime.TryParse(cellValue, out DateTime parsedDate))
-            {
-                dateTimePicker.Value = parsedDate;
-                dateTimePicker.Format = DateTimePickerFormat.Short;
+                if (!string.IsNullOrEmpty(cellValue) && DateTime.TryParse(cellValue, out DateTime parsedDate))
+                {
+                    dateTimePicker.Value = parsedDate;
+                    dateTimePicker.Format = DateTimePickerFormat.Short;
+                }
+                else
+                {
+                    // Null deðer durumunda tarih seçiciye varsayýlan tarih atýyoruz
+                    dateTimePicker.Value = DateTime.Now;
+                    dateTimePicker.Format = DateTimePickerFormat.Short; // Varsayýlan format
+                }
             }
-            else
+            catch (Exception ex)
             {
-                dateTimePicker.Value = DateTime.Now;
-                dateTimePicker.CustomFormat = "Null";
-                dateTimePicker.Format = DateTimePickerFormat.Custom;
+                MessageBox.Show($"Tarih ayarlanýrken bir hata oluþtu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void temizleProjeAlanlari()
+        {
+            textBox2.Clear();
+            richTextBox1.Clear();
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = DateTime.Now;
+        }
+
 
         void görevler()
         {
@@ -147,18 +183,31 @@ namespace sql_project
                 }
                 else
                 {
-                    if (!string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(richTextBox1.Text))
+                    if (!string.IsNullOrWhiteSpace(textBox2.Text) && dateTimePicker1.Value <= dateTimePicker2.Value)
                     {
-                        // Veritabanýna ekleme iþlemi
-                        List<string> columns = new List<string> { "Ad", "Açýklama" };
-                        List<object> values = new List<object> { textBox2.Text, richTextBox1.Text };
+                        List<string> columns = new List<string> { "Ad", "BaþlangýçTarihi", "BitiþTarihi", "aciklama" };
+                        List<object> values = new List<object>
+                {
+                    textBox2.Text,
+                    dateTimePicker1.Value.ToString("yyyy-MM-dd HH:mm:ss"),
+                    dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss"),
+                    richTextBox1.Text
+                };
 
                         int result = CRUD.ekle("projeler", columns, values);
 
                         if (result > 0)
                         {
                             MessageBox.Show("Proje baþarýyla eklendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            projeler(); // Listeyi güncelle
+
+                            // Listeyi güncelle
+                            projeler();
+
+                            // Alanlarý temizle
+                            temizleProjeAlanlari();
+
+                            // Gecikme hesapla
+                            gecikme();
                         }
                         else
                         {
@@ -167,12 +216,10 @@ namespace sql_project
                     }
                     else
                     {
-                        MessageBox.Show("TextBox veya RichTextBox boþ.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Baþlangýç tarihi bitiþ tarihinden büyük olamaz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
                     projeEklemeModu = false;
-                    textBox2.Clear();
-                    richTextBox1.Clear();
                     textBox2.ReadOnly = true;
                     richTextBox1.ReadOnly = true;
                     dateTimePicker1.Enabled = false;
@@ -181,10 +228,11 @@ namespace sql_project
             }
             catch (Exception ex)
             {
-                // Hata mesajýný kullanýcýya göster
                 MessageBox.Show($"Bir hata oluþtu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -210,13 +258,33 @@ namespace sql_project
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            richTextBox1.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            TarihNuller(dataGridView1, dataGridView1.CurrentRow.Index, 2, dateTimePicker1);
-            TarihNuller(dataGridView1, dataGridView1.CurrentRow.Index, 3, dateTimePicker2);
-            label21.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            gecikme();
+            try
+            {
+                textBox2.Text = dataGridView1.CurrentRow.Cells["Ad"].Value.ToString();
+                richTextBox1.Text = dataGridView1.CurrentRow.Cells["aciklama"].Value.ToString();
+                TarihNuller(dataGridView1, dataGridView1.CurrentRow.Index, 2, dateTimePicker1);
+                TarihNuller(dataGridView1, dataGridView1.CurrentRow.Index, 3, dateTimePicker2);
+
+                // Gecikme hesaplama
+                var bitisTarihi = dataGridView1.CurrentRow.Cells["BitiþTarihi"].Value?.ToString();
+                if (!string.IsNullOrEmpty(bitisTarihi) && DateTime.TryParse(bitisTarihi, out DateTime parsedBitiþ))
+                {
+                    int gecikme = (int)(DateTime.Now - parsedBitiþ).TotalDays;
+                    label21.Text = gecikme.ToString();
+                }
+                else
+                {
+                    label21.Text = "0";
+                }
+
+                gecikme();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir hata oluþtu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void dataGridView2_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
@@ -311,5 +379,68 @@ namespace sql_project
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Eðer ekleme ya da düzenleme modundaysa yalnýzca alanlarý temizle
+                if (projeEklemeModu || projeDuzenlemeModu)
+                {
+                    temizleProjeAlanlari();
+                    return;
+                }
+
+                // Eðer bir satýr seçilmiþse
+                if (dataGridView1.CurrentRow != null)
+                {
+                    string projeID = dataGridView1.CurrentRow.Cells["ProjeID"].Value?.ToString();
+
+                    if (!string.IsNullOrEmpty(projeID))
+                    {
+                        // Onay penceresi
+                        DialogResult dialogResult = MessageBox.Show("Bu projeyi silmek istediðinize emin misiniz?", "Silme Onayý", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            // Silme iþlemi
+                            int result = CRUD.sil("projeler", $"ProjeID = {projeID}");
+                            if (result > 0)
+                            {
+                                MessageBox.Show("Proje baþarýyla silindi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                // Listeyi güncelle
+                                projeler();
+
+                                // Alanlarý temizle
+                                temizleProjeAlanlari();
+
+                                // Gecikmeyi sýfýrla
+                                label21.Text = "0";
+                                gecikme();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Proje silinemedi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Lütfen silmek için bir proje seçin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen bir satýr seçin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir hata oluþtu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
     }
 }
