@@ -171,6 +171,7 @@
             Menü.SelectedIndex = 0;
             Menü.Size = new Size(1734, 865);
             Menü.TabIndex = 0;
+            Menü.SelectedIndexChanged += Menü_SelectedIndexChanged;
             // 
             // Projeler
             // 
@@ -203,6 +204,7 @@
             // 
             // Projelerinfo
             // 
+            Projelerinfo.AutoSize = true;
             Projelerinfo.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Projelerinfo.ColumnCount = 1;
             Projelerinfo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -223,6 +225,7 @@
             // 
             // Projelerinfosec
             // 
+            Projelerinfosec.AutoSize = true;
             Projelerinfosec.Controls.Add(Projelersearchsec);
             Projelerinfosec.Dock = DockStyle.Fill;
             Projelerinfosec.Location = new Point(22, 27);
@@ -252,8 +255,8 @@
             // 
             // Projelersearchicon
             // 
+            Projelersearchicon.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Projelersearchicon.BackColor = SystemColors.Window;
-            Projelersearchicon.Dock = DockStyle.Fill;
             Projelersearchicon.Image = Properties.Resources.pngwing;
             Projelersearchicon.Location = new Point(238, 5);
             Projelersearchicon.Margin = new Padding(3, 4, 3, 4);
@@ -262,10 +265,11 @@
             Projelersearchicon.SizeMode = PictureBoxSizeMode.Zoom;
             Projelersearchicon.TabIndex = 1;
             Projelersearchicon.TabStop = false;
+            Projelersearchicon.Click += Projelersearchicon_Click;
             // 
             // Projelersearchbar
             // 
-            Projelersearchbar.Dock = DockStyle.Fill;
+            Projelersearchbar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Projelersearchbar.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 162);
             Projelersearchbar.Location = new Point(4, 5);
             Projelersearchbar.Margin = new Padding(3, 4, 3, 4);
@@ -287,6 +291,7 @@
             // 
             // Projepanel
             // 
+            Projepanel.AutoSize = true;
             Projepanel.Controls.Add(Projeeklekaydet);
             Projepanel.Controls.Add(Projeacıklama);
             Projepanel.Controls.Add(Projebitişdate);
@@ -308,7 +313,8 @@
             // 
             // Projeeklekaydet
             // 
-            Projeeklekaydet.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Projeeklekaydet.Anchor = AnchorStyles.None;
+            Projeeklekaydet.AutoSize = true;
             Projeeklekaydet.Location = new Point(169, 371);
             Projeeklekaydet.Margin = new Padding(3, 4, 3, 4);
             Projeeklekaydet.Name = "Projeeklekaydet";
@@ -316,10 +322,11 @@
             Projeeklekaydet.TabIndex = 6;
             Projeeklekaydet.Text = "Kaydet";
             Projeeklekaydet.UseVisualStyleBackColor = true;
+            Projeeklekaydet.Click += Projeeklekaydet_Click;
             // 
             // Projeacıklama
             // 
-            Projeacıklama.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Projeacıklama.Anchor = AnchorStyles.None;
             Projeacıklama.Location = new Point(11, 221);
             Projeacıklama.Margin = new Padding(3, 4, 3, 4);
             Projeacıklama.Multiline = true;
@@ -330,7 +337,7 @@
             // 
             // Projebitişdate
             // 
-            Projebitişdate.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Projebitişdate.Anchor = AnchorStyles.None;
             Projebitişdate.Location = new Point(11, 168);
             Projebitişdate.Margin = new Padding(3, 4, 3, 4);
             Projebitişdate.Name = "Projebitişdate";
@@ -339,7 +346,7 @@
             // 
             // Projebitiş
             // 
-            Projebitiş.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Projebitiş.Anchor = AnchorStyles.None;
             Projebitiş.AutoSize = true;
             Projebitiş.Location = new Point(11, 144);
             Projebitiş.Name = "Projebitiş";
@@ -349,7 +356,7 @@
             // 
             // Projebaşlangıçdate
             // 
-            Projebaşlangıçdate.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Projebaşlangıçdate.Anchor = AnchorStyles.None;
             Projebaşlangıçdate.Location = new Point(11, 100);
             Projebaşlangıçdate.Margin = new Padding(3, 4, 3, 4);
             Projebaşlangıçdate.Name = "Projebaşlangıçdate";
@@ -358,7 +365,7 @@
             // 
             // Projebaşlangıç
             // 
-            Projebaşlangıç.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Projebaşlangıç.Anchor = AnchorStyles.None;
             Projebaşlangıç.AutoSize = true;
             Projebaşlangıç.Location = new Point(11, 76);
             Projebaşlangıç.Name = "Projebaşlangıç";
@@ -368,7 +375,7 @@
             // 
             // Projead
             // 
-            Projead.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Projead.Anchor = AnchorStyles.None;
             Projead.Location = new Point(11, 29);
             Projead.Margin = new Padding(3, 4, 3, 4);
             Projead.Name = "Projead";
@@ -378,11 +385,13 @@
             // 
             // Projelerjoystick
             // 
+            Projelerjoystick.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Projelerjoystick.AutoSize = true;
+            Projelerjoystick.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Projelerjoystick.Controls.Add(Projelerkaydet);
             Projelerjoystick.Controls.Add(Projelersil);
             Projelerjoystick.Controls.Add(Projelerdüzenle);
             Projelerjoystick.Controls.Add(Projelerekle);
-            Projelerjoystick.Dock = DockStyle.Fill;
             Projelerjoystick.Location = new Point(22, 104);
             Projelerjoystick.Margin = new Padding(3, 4, 3, 4);
             Projelerjoystick.Name = "Projelerjoystick";
@@ -393,6 +402,8 @@
             // 
             // Projelerkaydet
             // 
+            Projelerkaydet.Anchor = AnchorStyles.None;
+            Projelerkaydet.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Projelerkaydet.Location = new Point(169, 119);
             Projelerkaydet.Margin = new Padding(3, 4, 3, 4);
             Projelerkaydet.Name = "Projelerkaydet";
@@ -400,9 +411,12 @@
             Projelerkaydet.TabIndex = 7;
             Projelerkaydet.Text = "Kaydet";
             Projelerkaydet.UseVisualStyleBackColor = true;
+            Projelerkaydet.Click += Projelerkaydet_Click;
             // 
             // Projelersil
             // 
+            Projelersil.Anchor = AnchorStyles.None;
+            Projelersil.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Projelersil.Location = new Point(93, 185);
             Projelersil.Margin = new Padding(3, 4, 3, 4);
             Projelersil.Name = "Projelersil";
@@ -410,9 +424,12 @@
             Projelersil.TabIndex = 6;
             Projelersil.Text = "Sil";
             Projelersil.UseVisualStyleBackColor = true;
+            Projelersil.Click += Projelersil_Click;
             // 
             // Projelerdüzenle
             // 
+            Projelerdüzenle.Anchor = AnchorStyles.None;
+            Projelerdüzenle.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Projelerdüzenle.Location = new Point(16, 119);
             Projelerdüzenle.Margin = new Padding(3, 4, 3, 4);
             Projelerdüzenle.Name = "Projelerdüzenle";
@@ -424,6 +441,8 @@
             // 
             // Projelerekle
             // 
+            Projelerekle.Anchor = AnchorStyles.None;
+            Projelerekle.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Projelerekle.Location = new Point(93, 53);
             Projelerekle.Margin = new Padding(3, 4, 3, 4);
             Projelerekle.Name = "Projelerekle";
@@ -461,6 +480,8 @@
             // 
             // Projelerfilterbox
             // 
+            Projelerfilterbox.AutoSize = true;
+            Projelerfilterbox.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Projelerfilterbox.Controls.Add(Projelerfiltericon);
             Projelerfilterbox.Dock = DockStyle.Fill;
             Projelerfilterbox.Location = new Point(0, 0);
@@ -471,7 +492,7 @@
             // 
             // Projelerfiltericon
             // 
-            Projelerfiltericon.Dock = DockStyle.Right;
+            Projelerfiltericon.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             Projelerfiltericon.Image = Properties.Resources.a;
             Projelerfiltericon.Location = new Point(1330, 0);
             Projelerfiltericon.Margin = new Padding(3, 4, 3, 4);
@@ -494,6 +515,7 @@
             Projelerlist.Margin = new Padding(3, 4, 3, 4);
             Projelerlist.Name = "Projelerlist";
             Projelerlist.ReadOnly = true;
+            Projelerlist.RowHeadersVisible = false;
             Projelerlist.RowHeadersWidth = 51;
             Projelerlist.Size = new Size(1364, 760);
             Projelerlist.TabIndex = 1;
@@ -587,6 +609,7 @@
             Çalışanlarsearchicon.SizeMode = PictureBoxSizeMode.Zoom;
             Çalışanlarsearchicon.TabIndex = 1;
             Çalışanlarsearchicon.TabStop = false;
+            Çalışanlarsearchicon.Click += Çalışanlarsearchicon_Click;
             // 
             // Çalışanlarsearchbar
             // 
@@ -634,6 +657,7 @@
             // 
             // Telno
             // 
+            Telno.Anchor = AnchorStyles.None;
             Telno.Location = new Point(153, 299);
             Telno.Margin = new Padding(3, 4, 3, 4);
             Telno.Name = "Telno";
@@ -644,6 +668,7 @@
             // 
             // Alankod
             // 
+            Alankod.Anchor = AnchorStyles.None;
             Alankod.FormattingEnabled = true;
             Alankod.Location = new Point(16, 299);
             Alankod.Margin = new Padding(3, 4, 3, 4);
@@ -654,6 +679,7 @@
             // 
             // Çalışantelno
             // 
+            Çalışantelno.Anchor = AnchorStyles.None;
             Çalışantelno.AutoSize = true;
             Çalışantelno.Location = new Point(11, 268);
             Çalışantelno.Name = "Çalışantelno";
@@ -663,6 +689,7 @@
             // 
             // Çalışanemail
             // 
+            Çalışanemail.Anchor = AnchorStyles.None;
             Çalışanemail.Location = new Point(11, 207);
             Çalışanemail.Margin = new Padding(3, 4, 3, 4);
             Çalışanemail.Name = "Çalışanemail";
@@ -672,6 +699,7 @@
             // 
             // Çalışansoyad
             // 
+            Çalışansoyad.Anchor = AnchorStyles.None;
             Çalışansoyad.Location = new Point(136, 52);
             Çalışansoyad.Margin = new Padding(3, 4, 3, 4);
             Çalışansoyad.Name = "Çalışansoyad";
@@ -682,6 +710,7 @@
             // 
             // Çalışaneklekaydet
             // 
+            Çalışaneklekaydet.Anchor = AnchorStyles.None;
             Çalışaneklekaydet.Location = new Point(169, 356);
             Çalışaneklekaydet.Margin = new Padding(3, 4, 3, 4);
             Çalışaneklekaydet.Name = "Çalışaneklekaydet";
@@ -693,6 +722,7 @@
             // 
             // Çalışandoğumdate
             // 
+            Çalışandoğumdate.Anchor = AnchorStyles.None;
             Çalışandoğumdate.Location = new Point(11, 141);
             Çalışandoğumdate.Margin = new Padding(3, 4, 3, 4);
             Çalışandoğumdate.Name = "Çalışandoğumdate";
@@ -701,6 +731,7 @@
             // 
             // Çalışandoğum
             // 
+            Çalışandoğum.Anchor = AnchorStyles.None;
             Çalışandoğum.AutoSize = true;
             Çalışandoğum.Location = new Point(11, 117);
             Çalışandoğum.Name = "Çalışandoğum";
@@ -711,6 +742,7 @@
             // 
             // Çalışanad
             // 
+            Çalışanad.Anchor = AnchorStyles.None;
             Çalışanad.Location = new Point(11, 52);
             Çalışanad.Margin = new Padding(3, 4, 3, 4);
             Çalışanad.Name = "Çalışanad";
@@ -735,6 +767,8 @@
             // 
             // Çalışankaydet
             // 
+            Çalışankaydet.Anchor = AnchorStyles.None;
+            Çalışankaydet.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Çalışankaydet.Location = new Point(169, 119);
             Çalışankaydet.Margin = new Padding(3, 4, 3, 4);
             Çalışankaydet.Name = "Çalışankaydet";
@@ -742,9 +776,12 @@
             Çalışankaydet.TabIndex = 7;
             Çalışankaydet.Text = "Kaydet";
             Çalışankaydet.UseVisualStyleBackColor = true;
+            Çalışankaydet.Click += Çalışankaydet_Click;
             // 
             // Çalışansil
             // 
+            Çalışansil.Anchor = AnchorStyles.None;
+            Çalışansil.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Çalışansil.Location = new Point(93, 185);
             Çalışansil.Margin = new Padding(3, 4, 3, 4);
             Çalışansil.Name = "Çalışansil";
@@ -752,9 +789,12 @@
             Çalışansil.TabIndex = 6;
             Çalışansil.Text = "Sil";
             Çalışansil.UseVisualStyleBackColor = true;
+            Çalışansil.Click += Çalışansil_Click;
             // 
             // Çalışandüzenle
             // 
+            Çalışandüzenle.Anchor = AnchorStyles.None;
+            Çalışandüzenle.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Çalışandüzenle.Location = new Point(16, 119);
             Çalışandüzenle.Margin = new Padding(3, 4, 3, 4);
             Çalışandüzenle.Name = "Çalışandüzenle";
@@ -762,9 +802,12 @@
             Çalışandüzenle.TabIndex = 5;
             Çalışandüzenle.Text = "Düzenle...";
             Çalışandüzenle.UseVisualStyleBackColor = true;
+            Çalışandüzenle.Click += Çalışandüzenle_Click;
             // 
             // Çalışanekle
             // 
+            Çalışanekle.Anchor = AnchorStyles.None;
+            Çalışanekle.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Çalışanekle.Location = new Point(93, 53);
             Çalışanekle.Margin = new Padding(3, 4, 3, 4);
             Çalışanekle.Name = "Çalışanekle";
@@ -835,6 +878,7 @@
             Çalışanlarlist.Margin = new Padding(3, 4, 3, 4);
             Çalışanlarlist.Name = "Çalışanlarlist";
             Çalışanlarlist.ReadOnly = true;
+            Çalışanlarlist.RowHeadersVisible = false;
             Çalışanlarlist.RowHeadersWidth = 51;
             Çalışanlarlist.Size = new Size(1364, 760);
             Çalışanlarlist.TabIndex = 1;
@@ -931,6 +975,8 @@
             Görevlersearchicon.SizeMode = PictureBoxSizeMode.Zoom;
             Görevlersearchicon.TabIndex = 1;
             Görevlersearchicon.TabStop = false;
+            Görevlersearchicon.UseWaitCursor = true;
+            Görevlersearchicon.Click += Görevlersearchicon_Click;
             // 
             // Görevlersearchbar
             // 
@@ -979,6 +1025,7 @@
             // 
             // Görevlerprojeseç
             // 
+            Görevlerprojeseç.Anchor = AnchorStyles.None;
             Görevlerprojeseç.FormattingEnabled = true;
             Görevlerprojeseç.Location = new Point(11, 210);
             Görevlerprojeseç.Name = "Görevlerprojeseç";
@@ -987,6 +1034,7 @@
             // 
             // GörevlerÇalışanSeç
             // 
+            GörevlerÇalışanSeç.Anchor = AnchorStyles.None;
             GörevlerÇalışanSeç.FormattingEnabled = true;
             GörevlerÇalışanSeç.Location = new Point(144, 210);
             GörevlerÇalışanSeç.Name = "GörevlerÇalışanSeç";
@@ -996,6 +1044,7 @@
             // 
             // Görevadamgün
             // 
+            Görevadamgün.Anchor = AnchorStyles.None;
             Görevadamgün.Location = new Point(11, 173);
             Görevadamgün.Margin = new Padding(3, 4, 3, 4);
             Görevadamgün.Name = "Görevadamgün";
@@ -1005,6 +1054,8 @@
             // 
             // Göreveklekaydet
             // 
+            Göreveklekaydet.Anchor = AnchorStyles.None;
+            Göreveklekaydet.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Göreveklekaydet.Location = new Point(169, 371);
             Göreveklekaydet.Margin = new Padding(3, 4, 3, 4);
             Göreveklekaydet.Name = "Göreveklekaydet";
@@ -1012,9 +1063,11 @@
             Göreveklekaydet.TabIndex = 6;
             Göreveklekaydet.Text = "Kaydet";
             Göreveklekaydet.UseVisualStyleBackColor = true;
+            Göreveklekaydet.Click += Göreveklekaydet_Click;
             // 
             // Görevamac
             // 
+            Görevamac.Anchor = AnchorStyles.None;
             Görevamac.Location = new Point(11, 259);
             Görevamac.Margin = new Padding(3, 4, 3, 4);
             Görevamac.Multiline = true;
@@ -1025,6 +1078,7 @@
             // 
             // Görevbitişdate
             // 
+            Görevbitişdate.Anchor = AnchorStyles.None;
             Görevbitişdate.Location = new Point(11, 138);
             Görevbitişdate.Margin = new Padding(3, 4, 3, 4);
             Görevbitişdate.Name = "Görevbitişdate";
@@ -1033,6 +1087,7 @@
             // 
             // Görevbitiş
             // 
+            Görevbitiş.Anchor = AnchorStyles.None;
             Görevbitiş.AutoSize = true;
             Görevbitiş.Location = new Point(11, 114);
             Görevbitiş.Name = "Görevbitiş";
@@ -1042,6 +1097,7 @@
             // 
             // Görevbaşlangıçdate
             // 
+            Görevbaşlangıçdate.Anchor = AnchorStyles.None;
             Görevbaşlangıçdate.Location = new Point(11, 83);
             Görevbaşlangıçdate.Margin = new Padding(3, 4, 3, 4);
             Görevbaşlangıçdate.Name = "Görevbaşlangıçdate";
@@ -1050,6 +1106,7 @@
             // 
             // Görevbaşlangıç
             // 
+            Görevbaşlangıç.Anchor = AnchorStyles.None;
             Görevbaşlangıç.AutoSize = true;
             Görevbaşlangıç.Location = new Point(11, 59);
             Görevbaşlangıç.Name = "Görevbaşlangıç";
@@ -1059,6 +1116,7 @@
             // 
             // Görevad
             // 
+            Görevad.Anchor = AnchorStyles.None;
             Görevad.Location = new Point(11, 28);
             Görevad.Margin = new Padding(3, 4, 3, 4);
             Görevad.Name = "Görevad";
@@ -1083,6 +1141,8 @@
             // 
             // Görevlerkaydet
             // 
+            Görevlerkaydet.Anchor = AnchorStyles.None;
+            Görevlerkaydet.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Görevlerkaydet.Location = new Point(169, 119);
             Görevlerkaydet.Margin = new Padding(3, 4, 3, 4);
             Görevlerkaydet.Name = "Görevlerkaydet";
@@ -1090,9 +1150,12 @@
             Görevlerkaydet.TabIndex = 7;
             Görevlerkaydet.Text = "Kaydet";
             Görevlerkaydet.UseVisualStyleBackColor = true;
+            Görevlerkaydet.Click += Görevlerkaydet_Click;
             // 
             // Görevlersil
             // 
+            Görevlersil.Anchor = AnchorStyles.None;
+            Görevlersil.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Görevlersil.Location = new Point(93, 185);
             Görevlersil.Margin = new Padding(3, 4, 3, 4);
             Görevlersil.Name = "Görevlersil";
@@ -1100,9 +1163,12 @@
             Görevlersil.TabIndex = 6;
             Görevlersil.Text = "Sil";
             Görevlersil.UseVisualStyleBackColor = true;
+            Görevlersil.Click += Görevlersil_Click;
             // 
             // Görevlerdüzenle
             // 
+            Görevlerdüzenle.Anchor = AnchorStyles.None;
+            Görevlerdüzenle.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Görevlerdüzenle.Location = new Point(16, 119);
             Görevlerdüzenle.Margin = new Padding(3, 4, 3, 4);
             Görevlerdüzenle.Name = "Görevlerdüzenle";
@@ -1114,6 +1180,8 @@
             // 
             // Görevlerekle
             // 
+            Görevlerekle.Anchor = AnchorStyles.None;
+            Görevlerekle.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Görevlerekle.Location = new Point(93, 53);
             Görevlerekle.Margin = new Padding(3, 4, 3, 4);
             Görevlerekle.Name = "Görevlerekle";
@@ -1185,6 +1253,7 @@
             Görevlerlist.Margin = new Padding(3, 4, 3, 4);
             Görevlerlist.Name = "Görevlerlist";
             Görevlerlist.ReadOnly = true;
+            Görevlerlist.RowHeadersVisible = false;
             Görevlerlist.RowHeadersWidth = 51;
             Görevlerlist.Size = new Size(1364, 760);
             Görevlerlist.TabIndex = 1;
@@ -1199,6 +1268,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(1734, 865);
             Controls.Add(Menü);
             Margin = new Padding(3, 4, 3, 4);
@@ -1208,17 +1278,21 @@
             Menü.ResumeLayout(false);
             Projeler.ResumeLayout(false);
             Projelermainscreen.ResumeLayout(false);
+            Projelermainscreen.PerformLayout();
             Projelerinfo.ResumeLayout(false);
+            Projelerinfo.PerformLayout();
             Projelerinfosec.ResumeLayout(false);
             Projelersearchsec.ResumeLayout(false);
             Projelersearchsec.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Projelersearchicon).EndInit();
             Projeekleme.ResumeLayout(false);
+            Projeekleme.PerformLayout();
             Projepanel.ResumeLayout(false);
             Projepanel.PerformLayout();
             Projelerjoystick.ResumeLayout(false);
             Projelertablesec.ResumeLayout(false);
             Projelerfilter.ResumeLayout(false);
+            Projelerfilter.PerformLayout();
             Projelerfilterbox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Projelerfiltericon).EndInit();
             ((System.ComponentModel.ISupportInitialize)Projelerlist).EndInit();

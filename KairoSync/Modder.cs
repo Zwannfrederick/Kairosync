@@ -10,8 +10,7 @@ namespace sql_project
         {
             None,       // Hiçbir mod aktif değil
             Ekle,       // Ekleme modu
-            Duzenle,    // Düzenleme modu
-            Sil         // Silme modu
+            Duzenle   // Düzenleme modu
         }
 
         // Aktif mod değişkenini sınıf düzeyinde tanımlıyorum
@@ -54,20 +53,19 @@ namespace sql_project
             switch (aktifMod)
             {
                 case ModDurumu.Ekle:
-                    dataGridView.ClearSelection(); 
+                    dataGridView.ClearSelection();
+                    // Ekleme moduna geçiş
                     break;
                 case ModDurumu.Duzenle:
                     dataGridView.ClearSelection();
-                    dataGridView.ReadOnly = false;
-                    break;
-                case ModDurumu.Sil:
-                    dataGridView.ClearSelection();
+                    dataGridView.ReadOnly = false;  // Düzenleme için DataGridView'in kilidi açılır
                     break;
                 case ModDurumu.None:
                     dataGridView.ClearSelection();
+                    // Mod kapalı, sadece verileri görüntüle
                     break;
-
             }
         }
+
     }
 }

@@ -7,8 +7,8 @@ namespace sql_project
 {
     public class Controller
     {
-        private static System.Timers.Timer _timer; // Timer için System.Timers.Timer kullanıyoruz.
-        private static DataGridView _dataGridView; // Global DataGridView referansı.
+        private static System.Timers.Timer? _timer; // Timer için System.Timers.Timer kullanıyoruz.
+        private static DataGridView? _dataGridView; // Global DataGridView referansı.
 
         public static void BaslatGecikmeGuncelleme(DataGridView dataGridView)
         {
@@ -29,29 +29,38 @@ namespace sql_project
             _timer.Start();
         }
 
-        private static void TimerElapsed(object sender, ElapsedEventArgs e)
+        private static void TimerElapsed(object? sender, ElapsedEventArgs e)
         {
             try
             {
-                // Veritabanı güncelleme sorgusu
-                string sorgu = @"
+                if (_timer is not null)
+                {
+                    // Projeler tablosundaki gecikmeleri güncelle
+                    string projeSorgu = @"
                     UPDATE projeler
                     SET Gecikme = CAST((JULIANDAY('now') - JULIANDAY(BitişTarihi)) AS INTEGER)
                     WHERE TamamTarihi IS NULL;
                 ";
+                    CRUD.yürüt(projeSorgu);
 
-                // Gecikmeleri güncelle
-                CRUD.yürüt(sorgu);
+                    // Görevler tablosundaki gecikmeleri güncelle
+                    string gorevSorgu = @"
+                    UPDATE görevler
+                    SET Gecikme = CAST((JULIANDAY('now') - JULIANDAY(BitişTarihi)) AS INTEGER)
+                    WHERE Durum <> 'Tamamlandı';
+                ";
+                    CRUD.yürüt(gorevSorgu);
 
-                // DataGridView'i güncelle
-                if (_dataGridView != null)
-                {
-                    Loaders.ProjeleriGetir(_dataGridView); // Verileri yenile
+                    // DataGridView'i güncelle
+                    if (_dataGridView != null)
+                    {
+                        Loaders.GorevleriGetir(_dataGridView); // Görevleri yenile
+                    }
+
+                    // Timer'ı günlük çalışacak şekilde yeniden başlat
+                    _timer.Interval = TimeSpan.FromDays(1).TotalMilliseconds;
+                    _timer.Start();
                 }
-
-                // Timer'ı günlük çalışacak şekilde yeniden başlat
-                _timer.Interval = TimeSpan.FromDays(1).TotalMilliseconds;
-                _timer.Start();
             }
             catch (Exception ex)
             {

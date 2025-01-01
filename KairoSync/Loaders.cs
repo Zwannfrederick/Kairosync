@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Xml.Linq;
 
 namespace sql_project
 {
@@ -98,19 +100,45 @@ namespace sql_project
         // Tarih formatlarını ayarlayan fonksiyon
         private static void SetDateColumnFormat(DataGridView dataGridView, string columnName)
         {
-            if (dataGridView.Columns.Contains(columnName))
+            if (dataGridView != null && dataGridView.Columns.Contains(columnName))
             {
-                dataGridView.Columns[columnName].DefaultCellStyle.Format = "yyyy-MM-dd";
+                DataGridViewColumn? column = dataGridView.Columns[columnName];
+                if (column != null)
+                {
+                    column.DefaultCellStyle.Format = "yyyy-MM-dd";
+                }
+                else
+                {
+                    MessageBox.Show($"Hata: {columnName} adlı sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            else
+            {
+                MessageBox.Show("Hata: DataGridView veya sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         // Sütunları yalnızca okunabilir yapmak için yardımcı fonksiyon
         private static void SetReadOnlyColumn(DataGridView dataGridView, string columnName)
         {
-            if (dataGridView.Columns.Contains(columnName))
+            if (dataGridView != null && dataGridView.Columns.Contains(columnName))
             {
-                dataGridView.Columns[columnName].ReadOnly = true;
+                DataGridViewColumn? column = dataGridView.Columns[columnName];
+                if (column != null)
+                {
+                    column.ReadOnly = true;
+                }
+                else
+                {
+                    MessageBox.Show($"Hata: {columnName} adlı sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            else
+            {
+                MessageBox.Show("Hata: DataGridView veya sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         // Nullable int kontrolü ve null değer atama fonksiyonu
@@ -128,19 +156,33 @@ namespace sql_project
         // ComboBox sütunu eklemek için yardımcı fonksiyon
         private static void SetComboBoxColumn(DataGridView dataGridView, string columnName, string[] values)
         {
-            if (dataGridView.Columns.Contains(columnName))
+            if (dataGridView != null && dataGridView.Columns.Contains(columnName))
             {
-                int columnIndex = dataGridView.Columns[columnName].Index;
-                DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn
+                int? columnIndexNullable = dataGridView.Columns[columnName]?.Index;
+
+                if (columnIndexNullable.HasValue)
                 {
-                    DataSource = values,
-                    HeaderText = columnName,
-                    DataPropertyName = columnName,
-                    Name = columnName
-                };
-                dataGridView.Columns.RemoveAt(columnIndex);
-                dataGridView.Columns.Insert(columnIndex, comboBoxColumn);
+                    int columnIndex = columnIndexNullable.Value;
+                    DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn
+                    {
+                        DataSource = values,
+                        HeaderText = columnName,
+                        DataPropertyName = columnName,
+                        Name = columnName
+                    };
+                    dataGridView.Columns.RemoveAt(columnIndex);
+                    dataGridView.Columns.Insert(columnIndex, comboBoxColumn);
+                }
+                else
+                {
+                    MessageBox.Show($"Hata: {columnName} adlı sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            else
+            {
+                MessageBox.Show("Hata: DataGridView veya sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         // Projeler ve Çalışanlar için ComboBox eklemek
@@ -149,18 +191,27 @@ namespace sql_project
             var data = CRUD.list($"SELECT {valueMember}, {displayMember} FROM {tableName};");
             if (dataGridView.Columns.Contains(columnName))
             {
-                int columnIndex = dataGridView.Columns[columnName].Index;
-                DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn
+                int? columnIndexNullable = dataGridView.Columns[columnName]?.Index;
+
+                if (columnIndexNullable.HasValue)
                 {
-                    DataSource = data,
-                    DisplayMember = displayMember,
-                    ValueMember = valueMember,
-                    HeaderText = columnName,
-                    DataPropertyName = valueMember,
-                    Name = columnName
-                };
-                dataGridView.Columns.RemoveAt(columnIndex);
-                dataGridView.Columns.Insert(columnIndex, comboBoxColumn);
+                    int columnIndex = columnIndexNullable.Value;
+                    DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn
+                    {
+                        DataSource = data,
+                        DisplayMember = displayMember,
+                        ValueMember = valueMember,
+                        HeaderText = columnName,
+                        DataPropertyName = valueMember,
+                        Name = columnName
+                    };
+                    dataGridView.Columns.RemoveAt(columnIndex);
+                    dataGridView.Columns.Insert(columnIndex, comboBoxColumn);
+                }
+                else
+                {
+                    MessageBox.Show($"Hata: {columnName} adlı sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -7,15 +7,17 @@ using System.Text.Json;
 
 namespace KairoSync
 {
-    public class jsonreader
+    public class Jsonreader
     {
         public static List<Ülke> ReadCountries(string filePath)
         {
             try
             {
-                // Dosyayı okuyup JSON olarak deserialize ediyoruz
                 string jsonString = File.ReadAllText(filePath);
-                return JsonSerializer.Deserialize<List<Ülke>>(jsonString);
+                var countries = JsonSerializer.Deserialize<List<Ülke>>(jsonString);
+
+                // Deserialize işlemi sonucu null dönerse boş liste döndür
+                return countries ?? new List<Ülke>();
             }
             catch (Exception ex)
             {
