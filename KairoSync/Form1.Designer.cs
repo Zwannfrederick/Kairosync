@@ -517,6 +517,7 @@
             Projelerlist.ReadOnly = true;
             Projelerlist.RowHeadersVisible = false;
             Projelerlist.RowHeadersWidth = 51;
+            Projelerlist.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Projelerlist.Size = new Size(1364, 760);
             Projelerlist.TabIndex = 1;
             Projelerlist.CellContentClick += Projelerlist_CellContentClick;
@@ -880,6 +881,7 @@
             Çalışanlarlist.ReadOnly = true;
             Çalışanlarlist.RowHeadersVisible = false;
             Çalışanlarlist.RowHeadersWidth = 51;
+            Çalışanlarlist.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Çalışanlarlist.Size = new Size(1364, 760);
             Çalışanlarlist.TabIndex = 1;
             // 
@@ -1255,6 +1257,7 @@
             Görevlerlist.ReadOnly = true;
             Görevlerlist.RowHeadersVisible = false;
             Görevlerlist.RowHeadersWidth = 51;
+            Görevlerlist.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Görevlerlist.Size = new Size(1364, 760);
             Görevlerlist.TabIndex = 1;
             // 
