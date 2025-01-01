@@ -35,21 +35,8 @@ namespace sql_project
             {
                 if (_timer is not null)
                 {
-                    // Projeler tablosundaki gecikmeleri güncelle
-                    string projeSorgu = @"
-                    UPDATE projeler
-                    SET Gecikme = CAST((JULIANDAY('now') - JULIANDAY(BitişTarihi)) AS INTEGER)
-                    WHERE TamamTarihi IS NULL;
-                ";
-                    CRUD.yürüt(projeSorgu);
-
-                    // Görevler tablosundaki gecikmeleri güncelle
-                    string gorevSorgu = @"
-                    UPDATE görevler
-                    SET Gecikme = CAST((JULIANDAY('now') - JULIANDAY(BitişTarihi)) AS INTEGER)
-                    WHERE Durum <> 'Tamamlandı';
-                ";
-                    CRUD.yürüt(gorevSorgu);
+                    // Projeler ve görevler tablosundaki gecikmeleri güncelle
+                    GecikmeleriGuncelle();
 
                     // DataGridView'i güncelle
                     if (_dataGridView != null)
@@ -66,6 +53,32 @@ namespace sql_project
             {
                 // Hata yönetimi
                 Console.WriteLine($"Güncelleme sırasında bir hata oluştu: {ex.Message}");
+            }
+        }
+
+        private static void GecikmeleriGuncelle()
+        {
+            try
+            {
+                // Projeler tablosundaki gecikmeleri güncelle
+                string projeSorgu = @"
+                    UPDATE projeler
+                    SET Gecikme = CAST((JULIANDAY('now') - JULIANDAY(BitişTarihi)) AS INTEGER)
+                    WHERE TamamTarihi IS NULL;
+                ";
+                CRUD.yürüt(projeSorgu);
+
+                // Görevler tablosundaki gecikmeleri güncelle
+                string gorevSorgu = @"
+                    UPDATE görevler
+                    SET Gecikme = CAST((JULIANDAY('now') - JULIANDAY(BitişTarihi)) AS INTEGER)
+                    WHERE Durum <> 'Tamamlandı';
+                ";
+                CRUD.yürüt(gorevSorgu);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Gecikme güncellenirken bir hata oluştu: {ex.Message}");
             }
         }
     }

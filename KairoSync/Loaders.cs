@@ -1,7 +1,6 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Xml.Linq;
 
 namespace sql_project
 {
@@ -11,18 +10,25 @@ namespace sql_project
         {
             try
             {
-                // Veritabanı sorgusu: ProjeID nullable olabiliyor
-                dataGridView.DataSource = CRUD.list("SELECT ProjeID, Ad, BaşlangıçTarihi, BitişTarihi, Gecikme, Açıklama FROM projeler;");
+                string query = @"
+                    SELECT 
+                        ProjeID, Ad, BaşlangıçTarihi, BitişTarihi, Gecikme, Açıklama, TamamTarihi 
+                    FROM projeler;
+                ";
 
-                // Tarih formatları ayarlanıyor
+                dataGridView.DataSource = CRUD.list(query);
+
+                // Tarih formatları
                 SetDateColumnFormat(dataGridView, "BaşlangıçTarihi");
                 SetDateColumnFormat(dataGridView, "BitişTarihi");
+                SetDateColumnFormat(dataGridView, "TamamTarihi");
 
-                // ProjeID yalnızca okunabilir
+                // Düzenlenemez sütunlar
                 SetReadOnlyColumn(dataGridView, "ProjeID");
-
-                // Nullable int kontrolü yapıyoruz
-                SetNullableColumnValues(dataGridView, "ProjeID");
+                SetReadOnlyColumn(dataGridView, "Gecikme");
+                dataGridView.Columns["TamamTarihi"].HeaderText = "Tamamlanma Tarihi";
+                dataGridView.Columns["BaşlangıçTarihi"].HeaderText = "Başlangıç Tarihi";
+                dataGridView.Columns["BitişTarihi"].HeaderText = "Bitiş Tarihi";
             }
             catch (Exception ex)
             {
@@ -34,17 +40,22 @@ namespace sql_project
         {
             try
             {
-                // Çalışanları getir: ÇalışanID nullable olabiliyor
-                dataGridView.DataSource = CRUD.list("SELECT ÇalışanID, AdSoyad, Email, TelNo, DoğumTarihi FROM çalışanlar;");
+                string query = @"
+                    SELECT 
+                        ÇalışanID, AdSoyad, Email, TelNo, DoğumTarihi 
+                    FROM çalışanlar;
+                ";
 
-                // Tarih formatı ayarlanıyor
+                dataGridView.DataSource = CRUD.list(query);
+
+                // Tarih formatları
                 SetDateColumnFormat(dataGridView, "DoğumTarihi");
 
-                // ÇalışanID yalnızca okunabilir
+                // Düzenlenemez sütunlar
                 SetReadOnlyColumn(dataGridView, "ÇalışanID");
-
-                // Nullable int kontrolü yapıyoruz
-                SetNullableColumnValues(dataGridView, "ÇalışanID");
+                dataGridView.Columns["AdSoyad"].HeaderText = "Ad Soyad";
+                dataGridView.Columns["TelNo"].HeaderText = "Telefon Numarası";
+                dataGridView.Columns["DoğumTarihi"].HeaderText = "Doğum Tarihi";
             }
             catch (Exception ex)
             {
@@ -59,37 +70,36 @@ namespace sql_project
                 string query = @"
                     SELECT 
                         g.GörevID, g.Ad, g.BaşlangıçTarihi, g.BitişTarihi, g.AdamGün, g.Durum, 
-                        p.Ad AS ProjeAdi, c.AdSoyad AS CalisanAdi, g.Açıklama
+                        g.ProjeID, g.ÇalışanID, g.Açıklama, g.TamamTarihi, g.Gecikme,
+                        p.Ad AS ProjeAdi, c.AdSoyad AS CalisanAdi
                     FROM görevler g
                     LEFT JOIN projeler p ON g.ProjeID = p.ProjeID
                     LEFT JOIN çalışanlar c ON g.ÇalışanID = c.ÇalışanID;
                 ";
 
-                // Görevler tablosunu getir
                 dataGridView.DataSource = CRUD.list(query);
 
                 // Tarih formatları
                 SetDateColumnFormat(dataGridView, "BaşlangıçTarihi");
                 SetDateColumnFormat(dataGridView, "BitişTarihi");
+                SetDateColumnFormat(dataGridView, "TamamTarihi");
 
-                // GörevID yalnızca okunabilir
+                // Düzenlenemez sütunlar
                 SetReadOnlyColumn(dataGridView, "GörevID");
-
-                // Nullable int kontrolü yapıyoruz
-                SetNullableColumnValues(dataGridView, "GörevID");
-                SetNullableColumnValues(dataGridView, "ProjeID");
-                SetNullableColumnValues(dataGridView, "ÇalışanID");
+                SetReadOnlyColumn(dataGridView, "Gecikme");
+                SetReadOnlyColumn(dataGridView, "ProjeAdi");
+                SetReadOnlyColumn(dataGridView, "CalisanAdi");
+                dataGridView.Columns["TamamTarihi"].HeaderText = "Tamamlanma Tarihi";
+                dataGridView.Columns["BaşlangıçTarihi"].HeaderText = "Başlangıç Tarihi";
+                dataGridView.Columns["BitişTarihi"].HeaderText = "Bitiş Tarihi";
+                dataGridView.Columns["AdamGün"].HeaderText = "Adam-Gün Değeri";
 
                 // Durum sütunu için ComboBox
                 SetComboBoxColumn(dataGridView, "Durum", new string[] { "Tamamlanacak", "Devam Ediyor", "Tamamlandı" });
 
-                // ProjeAdi ve CalisanAdi sadece görüntüleme amaçlı, bunları düzenlenemez yapalım
-                SetReadOnlyColumn(dataGridView, "ProjeAdi");
-                SetReadOnlyColumn(dataGridView, "CalisanAdi");
-
                 // Proje ve Çalışan ComboBox'ları ekle
-                SetComboBoxColumnForLookup(dataGridView, "Proje", "ProjeID", "Ad", "projeler");
-                SetComboBoxColumnForLookup(dataGridView, "Çalışan", "ÇalışanID", "AdSoyad", "çalışanlar");
+                SetComboBoxColumnForLookup(dataGridView, "ProjeID", "ProjeID", "Ad", "projeler");
+                SetComboBoxColumnForLookup(dataGridView, "ÇalışanID", "ÇalışanID", "AdSoyad", "çalışanlar");
             }
             catch (Exception ex)
             {
@@ -102,21 +112,8 @@ namespace sql_project
         {
             if (dataGridView != null && dataGridView.Columns.Contains(columnName))
             {
-                DataGridViewColumn? column = dataGridView.Columns[columnName];
-                if (column != null)
-                {
-                    column.DefaultCellStyle.Format = "yyyy-MM-dd";
-                }
-                else
-                {
-                    MessageBox.Show($"Hata: {columnName} adlı sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                dataGridView.Columns[columnName].DefaultCellStyle.Format = "yyyy-MM-dd";
             }
-            else
-            {
-                MessageBox.Show("Hata: DataGridView veya sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         // Sütunları yalnızca okunabilir yapmak için yardımcı fonksiyon
@@ -124,21 +121,8 @@ namespace sql_project
         {
             if (dataGridView != null && dataGridView.Columns.Contains(columnName))
             {
-                DataGridViewColumn? column = dataGridView.Columns[columnName];
-                if (column != null)
-                {
-                    column.ReadOnly = true;
-                }
-                else
-                {
-                    MessageBox.Show($"Hata: {columnName} adlı sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                dataGridView.Columns[columnName].ReadOnly = true;
             }
-            else
-            {
-                MessageBox.Show("Hata: DataGridView veya sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         // Nullable int kontrolü ve null değer atama fonksiyonu
@@ -148,7 +132,7 @@ namespace sql_project
             {
                 if (row.Cells[columnName].Value == DBNull.Value)
                 {
-                    row.Cells[columnName].Value = null;  // Null değeri göstermek
+                    row.Cells[columnName].Value = null;
                 }
             }
         }
@@ -156,62 +140,41 @@ namespace sql_project
         // ComboBox sütunu eklemek için yardımcı fonksiyon
         private static void SetComboBoxColumn(DataGridView dataGridView, string columnName, string[] values)
         {
-            if (dataGridView != null && dataGridView.Columns.Contains(columnName))
+            if (dataGridView.Columns.Contains(columnName))
             {
-                int? columnIndexNullable = dataGridView.Columns[columnName]?.Index;
-
-                if (columnIndexNullable.HasValue)
+                DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn
                 {
-                    int columnIndex = columnIndexNullable.Value;
-                    DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn
-                    {
-                        DataSource = values,
-                        HeaderText = columnName,
-                        DataPropertyName = columnName,
-                        Name = columnName
-                    };
-                    dataGridView.Columns.RemoveAt(columnIndex);
-                    dataGridView.Columns.Insert(columnIndex, comboBoxColumn);
-                }
-                else
-                {
-                    MessageBox.Show($"Hata: {columnName} adlı sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Hata: DataGridView veya sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                    DataSource = values,
+                    HeaderText = columnName,
+                    DataPropertyName = columnName,
+                    Name = columnName
+                };
 
+                int columnIndex = dataGridView.Columns[columnName].Index;
+                dataGridView.Columns.RemoveAt(columnIndex);
+                dataGridView.Columns.Insert(columnIndex, comboBoxColumn);
+            }
         }
 
-        // Projeler ve Çalışanlar için ComboBox eklemek
+        // Lookup için ComboBox sütunu eklemek
         private static void SetComboBoxColumnForLookup(DataGridView dataGridView, string columnName, string valueMember, string displayMember, string tableName)
         {
             var data = CRUD.list($"SELECT {valueMember}, {displayMember} FROM {tableName};");
             if (dataGridView.Columns.Contains(columnName))
             {
-                int? columnIndexNullable = dataGridView.Columns[columnName]?.Index;
+                DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn
+                {
+                    DataSource = data,
+                    DisplayMember = displayMember,
+                    ValueMember = valueMember,
+                    HeaderText = columnName,
+                    DataPropertyName = valueMember,
+                    Name = columnName
+                };
 
-                if (columnIndexNullable.HasValue)
-                {
-                    int columnIndex = columnIndexNullable.Value;
-                    DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn
-                    {
-                        DataSource = data,
-                        DisplayMember = displayMember,
-                        ValueMember = valueMember,
-                        HeaderText = columnName,
-                        DataPropertyName = valueMember,
-                        Name = columnName
-                    };
-                    dataGridView.Columns.RemoveAt(columnIndex);
-                    dataGridView.Columns.Insert(columnIndex, comboBoxColumn);
-                }
-                else
-                {
-                    MessageBox.Show($"Hata: {columnName} adlı sütun bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                int columnIndex = dataGridView.Columns[columnName].Index;
+                dataGridView.Columns.RemoveAt(columnIndex);
+                dataGridView.Columns.Insert(columnIndex, comboBoxColumn);
             }
         }
     }

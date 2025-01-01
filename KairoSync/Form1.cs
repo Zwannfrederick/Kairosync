@@ -21,6 +21,8 @@ namespace KairoSync
             çalýþancontrols.AddRange(new Control[] { Çalýþanad, Çalýþansoyad, Çalýþanemail, Çalýþandoðumdate, Alankod, Telno });
             projecontrols.AddRange(new Control[] { Projead, Projeacýklama, Projebaþlangýçdate, Projebitiþdate });
             görevlercontrols.AddRange(new Control[] { Görevad, Görevadamgün, Görevamac, Görevbaþlangýçdate, Görevbitiþdate, GörevlerÇalýþanSeç, Görevlerprojeseç });
+            Controller.BaslatGecikmeGuncelleme(Görevlerlist);
+            Controller.BaslatGecikmeGuncelleme(Projelerlist);
         }
 
         private void LoadCountries()
@@ -146,6 +148,8 @@ namespace KairoSync
             else
             {
                 görevmod.ModDegistir(Modder.ModDurumu.Ekle, Çalýþanlarlist);
+                Tools.Projecombobox(Görevlerprojeseç);
+                Tools.Çalýþancombobox(GörevlerÇalýþanSeç);
                 Görevpanel.Visible = true;
             }
         }
