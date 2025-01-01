@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             Menü = new TabControl();
             Projeler = new TabPage();
             Projelermainscreen = new TableLayoutPanel();
@@ -1274,9 +1275,10 @@
             AutoSize = true;
             ClientSize = new Size(1734, 865);
             Controls.Add(Menü);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
-            Text = "Form1";
+            Text = "KairoSync";
             Load += Form1_Load;
             Menü.ResumeLayout(false);
             Projeler.ResumeLayout(false);

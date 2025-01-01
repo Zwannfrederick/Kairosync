@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RZiex7m+PGA=",
+  "dgSpecHash": "JQEAYaXSpAw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\LENOVO\\OneDrive\\Masaüstü\\Personal\\Coding Examples\\KairoSync\\KairoSync\\KairoSync.csproj",
+  "projectFilePath": "C:\\Users\\LENOVO\\OneDrive\\Masaüstü\\Personal\\Coding Examples\\Kairosync\\KairoSync\\KairoSync.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

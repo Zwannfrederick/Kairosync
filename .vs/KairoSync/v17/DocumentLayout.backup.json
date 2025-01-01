@@ -1,7 +1,27 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\",
+  "WorkspaceRootPath": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\",
   "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
     {
       "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\loaders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\loaders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -17,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\crud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,28 +74,65 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Controller.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Controller.cs",
-              "RelativeDocumentMoniker": "KairoSync\\Controller.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Controller.cs",
-              "RelativeToolTip": "KairoSync\\Controller.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAwFUAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Settings.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Settings.Designer.cs",
+              "RelativeDocumentMoniker": "KairoSync\\Settings.Designer.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Settings.Designer.cs",
+              "RelativeToolTip": "KairoSync\\Settings.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T10:41:35.243Z",
+              "WhenOpened": "2025-01-01T23:14:17.933Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Settings.cs",
+              "RelativeDocumentMoniker": "KairoSync\\Settings.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Settings.cs",
+              "RelativeToolTip": "KairoSync\\Settings.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T23:14:29.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Settings.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Settings.cs",
+              "RelativeDocumentMoniker": "KairoSync\\Settings.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Settings.cs [Tasar\u0131m]",
+              "RelativeToolTip": "KairoSync\\Settings.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T23:00:28.425Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Controller.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Controller.cs",
+              "RelativeDocumentMoniker": "KairoSync\\Controller.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Controller.cs",
+              "RelativeToolTip": "KairoSync\\Controller.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAwFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-01T10:41:35.243Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "jsonreader.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\jsonreader.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\jsonreader.cs",
               "RelativeDocumentMoniker": "KairoSync\\jsonreader.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\jsonreader.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\jsonreader.cs",
               "RelativeToolTip": "KairoSync\\jsonreader.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAWwBAAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -91,11 +140,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Program.cs",
               "RelativeDocumentMoniker": "KairoSync\\Program.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Program.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Program.cs",
               "RelativeToolTip": "KairoSync\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -103,11 +152,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "\u00DClke.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\\u00DClke.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\\u00DClke.cs",
               "RelativeDocumentMoniker": "KairoSync\\\u00DClke.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\\u00DClke.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\\u00DClke.cs",
               "RelativeToolTip": "KairoSync\\\u00DClke.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -115,11 +164,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "ulke.json",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\bin\\Debug\\net9.0-windows\\ulke.json",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\bin\\Debug\\net9.0-windows\\ulke.json",
               "RelativeDocumentMoniker": "KairoSync\\bin\\Debug\\net9.0-windows\\ulke.json",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\bin\\Debug\\net9.0-windows\\ulke.json",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\bin\\Debug\\net9.0-windows\\ulke.json",
               "RelativeToolTip": "KairoSync\\bin\\Debug\\net9.0-windows\\ulke.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -127,11 +176,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "Modder.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Modder.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Modder.cs",
               "RelativeDocumentMoniker": "KairoSync\\Modder.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Modder.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Modder.cs",
               "RelativeToolTip": "KairoSync\\Modder.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAAAD0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -139,11 +188,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Connect.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Connect.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Connect.cs",
               "RelativeDocumentMoniker": "KairoSync\\Connect.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Connect.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Connect.cs",
               "RelativeToolTip": "KairoSync\\Connect.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -151,37 +200,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Loaders.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Loaders.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Loaders.cs",
               "RelativeDocumentMoniker": "KairoSync\\Loaders.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Loaders.cs*",
-              "RelativeToolTip": "KairoSync\\Loaders.cs*",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAAAIYAAAA3AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Loaders.cs",
+              "RelativeToolTip": "KairoSync\\Loaders.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAAIYAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T00:26:05.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T00:26:05.882Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 3,
               "Title": "Form1.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "KairoSync\\Form1.Designer.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Form1.Designer.cs*",
-              "RelativeToolTip": "KairoSync\\Form1.Designer.cs*",
-              "ViewState": "AgIAABYAAAAAAAAAAAAuwBYAAAAIAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Form1.Designer.cs",
+              "RelativeToolTip": "KairoSync\\Form1.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-31T00:24:27.318Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "CRUD.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\CRUD.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\CRUD.cs",
               "RelativeDocumentMoniker": "KairoSync\\CRUD.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\CRUD.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\CRUD.cs",
               "RelativeToolTip": "KairoSync\\CRUD.cs",
               "ViewState": "AgIAAGoAAAAAAAAAAAAAAHgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -189,12 +237,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Form1.cs",
               "RelativeDocumentMoniker": "KairoSync\\Form1.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Form1.cs*",
-              "RelativeToolTip": "KairoSync\\Form1.cs*",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Form1.cs",
+              "RelativeToolTip": "KairoSync\\Form1.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAACsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T21:50:53.921Z",
@@ -204,26 +252,25 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Form1.cs [Tasar\u0131m]",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Form1.cs",
               "RelativeDocumentMoniker": "KairoSync\\Form1.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Form1.cs [Tasar\u0131m]*",
-              "RelativeToolTip": "KairoSync\\Form1.cs [Tasar\u0131m]*",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Form1.cs [Tasar\u0131m]",
+              "RelativeToolTip": "KairoSync\\Form1.cs [Tasar\u0131m]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T21:25:38.748Z",
               "EditorCaption": " [Tasar\u0131m]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Tools.cs",
-              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Tools.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Tools.cs",
               "RelativeDocumentMoniker": "KairoSync\\Tools.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Tools.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\Kairosync\\KairoSync\\Tools.cs",
               "RelativeToolTip": "KairoSync\\Tools.cs",
               "ViewState": "AgIAAFsBAAAAAAAAAAAAAGQBAABxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T01:24:44.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T01:24:44.695Z"
             }
           ]
         }
