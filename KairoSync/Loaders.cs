@@ -9,14 +9,18 @@ namespace sql_project
         {
             try
             {
+                // Veritabanı sorgusu: ProjeID nullable olabiliyor
                 dataGridView.DataSource = CRUD.list("SELECT ProjeID, Ad, BaşlangıçTarihi, BitişTarihi, Gecikme, Açıklama FROM projeler;");
 
-                // Tarih formatı ayarlanıyor
-                dataGridView.Columns["BaşlangıçTarihi"].DefaultCellStyle.Format = "yyyy-MM-dd";
-                dataGridView.Columns["BitişTarihi"].DefaultCellStyle.Format = "yyyy-MM-dd";
+                // Tarih formatları ayarlanıyor
+                SetDateColumnFormat(dataGridView, "BaşlangıçTarihi");
+                SetDateColumnFormat(dataGridView, "BitişTarihi");
 
                 // ProjeID yalnızca okunabilir
-                dataGridView.Columns["ProjeID"].ReadOnly = true;
+                SetReadOnlyColumn(dataGridView, "ProjeID");
+
+                // Nullable int kontrolü yapıyoruz
+                SetNullableColumnValues(dataGridView, "ProjeID");
             }
             catch (Exception ex)
             {
@@ -28,13 +32,17 @@ namespace sql_project
         {
             try
             {
+                // Çalışanları getir: ÇalışanID nullable olabiliyor
                 dataGridView.DataSource = CRUD.list("SELECT ÇalışanID, AdSoyad, Email, TelNo, DoğumTarihi FROM çalışanlar;");
 
                 // Tarih formatı ayarlanıyor
-                dataGridView.Columns["DoğumTarihi"].DefaultCellStyle.Format = "yyyy-MM-dd";
+                SetDateColumnFormat(dataGridView, "DoğumTarihi");
 
                 // ÇalışanID yalnızca okunabilir
-                dataGridView.Columns["ÇalışanID"].ReadOnly = true;
+                SetReadOnlyColumn(dataGridView, "ÇalışanID");
+
+                // Nullable int kontrolü yapıyoruz
+                SetNullableColumnValues(dataGridView, "ÇalışanID");
             }
             catch (Exception ex)
             {
@@ -46,7 +54,6 @@ namespace sql_project
         {
             try
             {
-                // Proje ve Çalışan isimlerini de dahil eden sorguyu kullan
                 string query = @"
                     SELECT 
                         g.GörevID, g.Ad, g.BaşlangıçTarihi, g.BitişTarihi, g.AdamGün, g.Durum, 
@@ -59,59 +66,28 @@ namespace sql_project
                 // Görevler tablosunu getir
                 dataGridView.DataSource = CRUD.list(query);
 
-                // Tarih formatı ayarla
-                dataGridView.Columns["BaşlangıçTarihi"].DefaultCellStyle.Format = "yyyy-MM-dd";
-                dataGridView.Columns["BitişTarihi"].DefaultCellStyle.Format = "yyyy-MM-dd";
+                // Tarih formatları
+                SetDateColumnFormat(dataGridView, "BaşlangıçTarihi");
+                SetDateColumnFormat(dataGridView, "BitişTarihi");
 
                 // GörevID yalnızca okunabilir
-                dataGridView.Columns["GörevID"].ReadOnly = true;
+                SetReadOnlyColumn(dataGridView, "GörevID");
+
+                // Nullable int kontrolü yapıyoruz
+                SetNullableColumnValues(dataGridView, "GörevID");
+                SetNullableColumnValues(dataGridView, "ProjeID");
+                SetNullableColumnValues(dataGridView, "ÇalışanID");
 
                 // Durum sütunu için ComboBox
-                DataGridViewComboBoxColumn durumColumn = new DataGridViewComboBoxColumn
-                {
-                    DataSource = new string[] { "Tamamlanacak", "Devam Ediyor", "Tamamlandı" },
-                    HeaderText = "Durum",
-                    DataPropertyName = "Durum",
-                    ValueType = typeof(string),
-                    Name = "Durum"
-                };
-                int durumColumnIndex = dataGridView.Columns["Durum"].Index;
-                dataGridView.Columns.RemoveAt(durumColumnIndex);
-                dataGridView.Columns.Insert(durumColumnIndex, durumColumn);
+                SetComboBoxColumn(dataGridView, "Durum", new string[] { "Tamamlanacak", "Devam Ediyor", "Tamamlandı" });
 
                 // ProjeAdi ve CalisanAdi sadece görüntüleme amaçlı, bunları düzenlenemez yapalım
-                dataGridView.Columns["ProjeAdi"].ReadOnly = true;
-                dataGridView.Columns["CalisanAdi"].ReadOnly = true;
+                SetReadOnlyColumn(dataGridView, "ProjeAdi");
+                SetReadOnlyColumn(dataGridView, "CalisanAdi");
 
-                // Projeler tablosunu getir ve ProjeID sütununu bir ComboBox olarak ekle
-                var projeler = CRUD.list("SELECT ProjeID, Ad FROM projeler;");
-                DataGridViewComboBoxColumn projeColumn = new DataGridViewComboBoxColumn
-                {
-                    DataSource = projeler,
-                    DisplayMember = "Ad",
-                    ValueMember = "ProjeID",
-                    HeaderText = "Proje",
-                    DataPropertyName = "ProjeID",
-                    Name = "Proje"
-                };
-                int projeColumnIndex = dataGridView.Columns["ProjeID"].Index;
-                dataGridView.Columns.RemoveAt(projeColumnIndex);
-                dataGridView.Columns.Insert(projeColumnIndex, projeColumn);
-
-                // Çalışanlar tablosunu getir ve ÇalışanID sütununu bir ComboBox olarak ekle
-                var calisanlar = CRUD.list("SELECT ÇalışanID, AdSoyad FROM çalışanlar;");
-                DataGridViewComboBoxColumn calisanColumn = new DataGridViewComboBoxColumn
-                {
-                    DataSource = calisanlar,
-                    DisplayMember = "AdSoyad",
-                    ValueMember = "ÇalışanID",
-                    HeaderText = "Çalışan",
-                    DataPropertyName = "ÇalışanID",
-                    Name = "Çalışan"
-                };
-                int calisanColumnIndex = dataGridView.Columns["ÇalışanID"].Index;
-                dataGridView.Columns.RemoveAt(calisanColumnIndex);
-                dataGridView.Columns.Insert(calisanColumnIndex, calisanColumn);
+                // Proje ve Çalışan ComboBox'ları ekle
+                SetComboBoxColumnForLookup(dataGridView, "Proje", "ProjeID", "Ad", "projeler");
+                SetComboBoxColumnForLookup(dataGridView, "Çalışan", "ÇalışanID", "AdSoyad", "çalışanlar");
             }
             catch (Exception ex)
             {
@@ -119,5 +95,73 @@ namespace sql_project
             }
         }
 
+        // Tarih formatlarını ayarlayan fonksiyon
+        private static void SetDateColumnFormat(DataGridView dataGridView, string columnName)
+        {
+            if (dataGridView.Columns.Contains(columnName))
+            {
+                dataGridView.Columns[columnName].DefaultCellStyle.Format = "yyyy-MM-dd";
+            }
+        }
+
+        // Sütunları yalnızca okunabilir yapmak için yardımcı fonksiyon
+        private static void SetReadOnlyColumn(DataGridView dataGridView, string columnName)
+        {
+            if (dataGridView.Columns.Contains(columnName))
+            {
+                dataGridView.Columns[columnName].ReadOnly = true;
+            }
+        }
+
+        // Nullable int kontrolü ve null değer atama fonksiyonu
+        private static void SetNullableColumnValues(DataGridView dataGridView, string columnName)
+        {
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (row.Cells[columnName].Value == DBNull.Value)
+                {
+                    row.Cells[columnName].Value = null;  // Null değeri göstermek
+                }
+            }
+        }
+
+        // ComboBox sütunu eklemek için yardımcı fonksiyon
+        private static void SetComboBoxColumn(DataGridView dataGridView, string columnName, string[] values)
+        {
+            if (dataGridView.Columns.Contains(columnName))
+            {
+                int columnIndex = dataGridView.Columns[columnName].Index;
+                DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn
+                {
+                    DataSource = values,
+                    HeaderText = columnName,
+                    DataPropertyName = columnName,
+                    Name = columnName
+                };
+                dataGridView.Columns.RemoveAt(columnIndex);
+                dataGridView.Columns.Insert(columnIndex, comboBoxColumn);
+            }
+        }
+
+        // Projeler ve Çalışanlar için ComboBox eklemek
+        private static void SetComboBoxColumnForLookup(DataGridView dataGridView, string columnName, string valueMember, string displayMember, string tableName)
+        {
+            var data = CRUD.list($"SELECT {valueMember}, {displayMember} FROM {tableName};");
+            if (dataGridView.Columns.Contains(columnName))
+            {
+                int columnIndex = dataGridView.Columns[columnName].Index;
+                DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn
+                {
+                    DataSource = data,
+                    DisplayMember = displayMember,
+                    ValueMember = valueMember,
+                    HeaderText = columnName,
+                    DataPropertyName = valueMember,
+                    Name = columnName
+                };
+                dataGridView.Columns.RemoveAt(columnIndex);
+                dataGridView.Columns.Insert(columnIndex, comboBoxColumn);
+            }
+        }
     }
 }

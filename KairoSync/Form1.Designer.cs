@@ -93,6 +93,8 @@
             Görevlersearchbar = new TextBox();
             Görevekleme = new Panel();
             Görevpanel = new GroupBox();
+            Görevlerprojeseç = new ComboBox();
+            GörevlerÇalışanSeç = new ComboBox();
             Görevadamgün = new TextBox();
             Göreveklekaydet = new Button();
             Görevamac = new TextBox();
@@ -112,8 +114,6 @@
             Görevlerfiltericon = new PictureBox();
             Görevlerlist = new DataGridView();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            GörevlerÇalışanSeç = new ComboBox();
-            Görevlerprojeseç = new ComboBox();
             Menü.SuspendLayout();
             Projeler.SuspendLayout();
             Projelermainscreen.SuspendLayout();
@@ -977,6 +977,23 @@
             Görevpanel.Text = " Görev Oluştur";
             Görevpanel.Visible = false;
             // 
+            // Görevlerprojeseç
+            // 
+            Görevlerprojeseç.FormattingEnabled = true;
+            Görevlerprojeseç.Location = new Point(11, 210);
+            Görevlerprojeseç.Name = "Görevlerprojeseç";
+            Görevlerprojeseç.Size = new Size(134, 28);
+            Görevlerprojeseç.TabIndex = 9;
+            // 
+            // GörevlerÇalışanSeç
+            // 
+            GörevlerÇalışanSeç.FormattingEnabled = true;
+            GörevlerÇalışanSeç.Location = new Point(144, 210);
+            GörevlerÇalışanSeç.Name = "GörevlerÇalışanSeç";
+            GörevlerÇalışanSeç.Size = new Size(134, 28);
+            GörevlerÇalışanSeç.TabIndex = 8;
+            GörevlerÇalışanSeç.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
             // Görevadamgün
             // 
             Görevadamgün.Location = new Point(11, 173);
@@ -1177,23 +1194,6 @@
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
-            // 
-            // GörevlerÇalışanSeç
-            // 
-            GörevlerÇalışanSeç.FormattingEnabled = true;
-            GörevlerÇalışanSeç.Location = new Point(144, 210);
-            GörevlerÇalışanSeç.Name = "GörevlerÇalışanSeç";
-            GörevlerÇalışanSeç.Size = new Size(134, 28);
-            GörevlerÇalışanSeç.TabIndex = 8;
-            GörevlerÇalışanSeç.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-            // 
-            // Görevlerprojeseç
-            // 
-            Görevlerprojeseç.FormattingEnabled = true;
-            Görevlerprojeseç.Location = new Point(11, 210);
-            Görevlerprojeseç.Name = "Görevlerprojeseç";
-            Görevlerprojeseç.Size = new Size(134, 28);
-            Görevlerprojeseç.TabIndex = 9;
             // 
             // Form1
             // 

@@ -33,6 +33,8 @@ namespace KairoSync
             Loaders.CalisanlariGetir(Çalýþanlarlist);
             Loaders.GorevleriGetir(Görevlerlist);
             LoadCountries();
+            Controller.BaslatGecikmeGuncelleme(Projelerlist);
+            Controller.BaslatGecikmeGuncelleme(Görevlerlist);
         }
 
         private void Projelerfilterbox_Paint(object sender, PaintEventArgs e)
