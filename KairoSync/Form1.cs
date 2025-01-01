@@ -225,16 +225,19 @@ namespace KairoSync
         private void Görevlerkaydet_Click(object sender, EventArgs e)
         {
             Tools.Kaydet(Görevlerlist, "görevler", görevmod.aktifMod);
+            Loaders.GorevleriGetir(Görevlerlist);
         }
 
         private void Çalýþankaydet_Click(object sender, EventArgs e)
         {
             Tools.Kaydet(Çalýþanlarlist, "çalýþanlar", calisanmod.aktifMod);
+            Loaders.CalisanlariGetir(Çalýþanlarlist);
         }
 
         private void Projelerkaydet_Click(object sender, EventArgs e)
         {
             Tools.Kaydet(Projelerlist, "projeler", projemod.aktifMod);
+            Loaders.ProjeleriGetir(Projelerlist);
         }
 
         private void Çalýþandüzenle_Click(object sender, EventArgs e)
@@ -252,16 +255,19 @@ namespace KairoSync
         private void Çalýþansil_Click(object sender, EventArgs e)
         {
             Tools.Sil(Çalýþanlarlist, "çalýþanlar", calisanmod.aktifMod, çalýþancontrols);
+            Loaders.CalisanlariGetir(Çalýþanlarlist);
         }
 
         private void Projeeklekaydet_Click(object sender, EventArgs e)
         {
             Tools.ProjeEkle(Projead.Text, Projebaþlangýçdate.Value, Projebitiþdate.Value, Projeacýklama.Text, projemod, Projelerlist);
+            Loaders.ProjeleriGetir(Projelerlist);
         }
 
         private void Projelersil_Click(object sender, EventArgs e)
         {
             Tools.Sil(Projelerlist, "projeler", projemod.aktifMod, projecontrols);
+            Loaders.ProjeleriGetir(Projelerlist);
         }
 
         private void Projelersearchicon_Click(object sender, EventArgs e)
@@ -292,6 +298,7 @@ namespace KairoSync
 
 
                 Tools.GorevEkle(Görevad.Text, Görevbaþlangýçdate.Value, Görevbitiþdate.Value, Görevadamgün.Text, projeID, calisanID, Görevamac.Text, görevmod.aktifMod);
+                Loaders.GorevleriGetir(Görevlerlist);
             }
             else
             {
@@ -302,6 +309,7 @@ namespace KairoSync
         private void Görevlersil_Click(object sender, EventArgs e)
         {
             Tools.Sil(Projelerlist, "görevler", görevmod.aktifMod, görevlercontrols);
+            Loaders.GorevleriGetir(Görevlerlist);
         }
     }
 }

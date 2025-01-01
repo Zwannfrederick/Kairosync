@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\crud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\crud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\kairosync\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\tools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\tools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\crud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\crud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\jsonreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,14 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\\u00FClke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\\u00FClke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\tools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|solutionrelative:kairosync\\tools.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{92C7B3B8-CACD-4345-818D-D7F9938E6B25}|KairoSync\\KairoSync.csproj|c:\\users\\lenovo\\onedrive\\masa\u00FCst\u00FC\\personal\\coding examples\\kairosync\\kairosync\\modder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
@@ -74,12 +74,11 @@
               "RelativeToolTip": "KairoSync\\Controller.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAmwBoAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-01T10:41:35.243Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-01T10:41:35.243Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "jsonreader.cs",
               "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\jsonreader.cs",
               "RelativeDocumentMoniker": "KairoSync\\jsonreader.cs",
@@ -87,8 +86,7 @@
               "RelativeToolTip": "KairoSync\\jsonreader.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAWwBAAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T02:10:44.286Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T02:10:44.286Z"
             },
             {
               "$type": "Document",
@@ -100,12 +98,11 @@
               "RelativeToolTip": "KairoSync\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T02:05:56.337Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T02:05:56.337Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "\u00DClke.cs",
               "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\\u00DClke.cs",
               "RelativeDocumentMoniker": "KairoSync\\\u00DClke.cs",
@@ -113,8 +110,7 @@
               "RelativeToolTip": "KairoSync\\\u00DClke.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T01:59:54.801Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T01:59:54.801Z"
             },
             {
               "$type": "Document",
@@ -126,8 +122,7 @@
               "RelativeToolTip": "KairoSync\\bin\\Debug\\net9.0-windows\\ulke.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-31T01:53:37.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T01:53:37.378Z"
             },
             {
               "$type": "Document",
@@ -135,12 +130,11 @@
               "Title": "Modder.cs",
               "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Modder.cs",
               "RelativeDocumentMoniker": "KairoSync\\Modder.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Modder.cs*",
-              "RelativeToolTip": "KairoSync\\Modder.cs*",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Modder.cs",
+              "RelativeToolTip": "KairoSync\\Modder.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAAAD0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T01:37:33.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T01:37:33.203Z"
             },
             {
               "$type": "Document",
@@ -152,8 +146,7 @@
               "RelativeToolTip": "KairoSync\\Connect.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T00:36:50.174Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T00:36:50.174Z"
             },
             {
               "$type": "Document",
@@ -165,8 +158,7 @@
               "RelativeToolTip": "KairoSync\\Loaders.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAAuwHYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T00:26:05.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T00:26:05.882Z"
             },
             {
               "$type": "Document",
@@ -183,26 +175,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "CRUD.cs",
               "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\CRUD.cs",
               "RelativeDocumentMoniker": "KairoSync\\CRUD.cs",
               "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\CRUD.cs",
               "RelativeToolTip": "KairoSync\\CRUD.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAAAHgAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAAAHgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T00:09:06.186Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T00:09:06.186Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Form1.cs",
               "RelativeDocumentMoniker": "KairoSync\\Form1.cs",
               "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Form1.cs",
               "RelativeToolTip": "KairoSync\\Form1.cs",
-              "ViewState": "AgIAABUBAAAAAAAAAAAAwBsBAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABsBAAAAAAAAAAAAwCwBAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-30T21:50:53.921Z",
               "EditorCaption": ""
@@ -221,16 +212,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Tools.cs",
               "DocumentMoniker": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Tools.cs",
               "RelativeDocumentMoniker": "KairoSync\\Tools.cs",
-              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Tools.cs*",
-              "RelativeToolTip": "KairoSync\\Tools.cs*",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAlwFQAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\LENOVO\\OneDrive\\Masa\u00FCst\u00FC\\Personal\\Coding Examples\\KairoSync\\KairoSync\\Tools.cs",
+              "RelativeToolTip": "KairoSync\\Tools.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAuwCoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T01:24:44.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-31T01:24:44.695Z"
             }
           ]
         }
