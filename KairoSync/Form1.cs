@@ -185,6 +185,7 @@ namespace KairoSync
             string telno = (string.IsNullOrEmpty(selectedValue) ? string.Empty : selectedValue) + " " + (string.IsNullOrEmpty(Telno.Text) ? "Hatalý telefon formatý lütfen güncelleyiniz" : Telno.Text);
             Tools.CalisanEkle(Çalýþanad.Text + " " + Çalýþansoyad.Text, Çalýþanemail.Text, telno, Çalýþandoðumdate.Value.Date, calisanmod.aktifMod);
             Loaders.CalisanlariGetir(Çalýþanlarlist);
+            Loaders.GorevleriGetir(Görevlerlist);
         }
 
         private void Görevlerdüzenle_Click(object sender, EventArgs e)
@@ -266,6 +267,7 @@ namespace KairoSync
         {
             Tools.ProjeEkle(Projead.Text, Projebaþlangýçdate.Value, Projebitiþdate.Value, Projeacýklama.Text, projemod, Projelerlist);
             Loaders.ProjeleriGetir(Projelerlist);
+            Loaders.GorevleriGetir(Görevlerlist);
         }
 
         private void Projelersil_Click(object sender, EventArgs e)
@@ -312,7 +314,7 @@ namespace KairoSync
 
         private void Görevlersil_Click(object sender, EventArgs e)
         {
-            Tools.Sil(Projelerlist, "görevler", görevmod.aktifMod, görevlercontrols);
+            Tools.Sil(Görevlerlist, "görevler", görevmod.aktifMod, görevlercontrols);
             Loaders.GorevleriGetir(Görevlerlist);
         }
     }

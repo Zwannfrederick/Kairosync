@@ -100,6 +100,17 @@ namespace sql_project
                 // Proje ve Çalışan ComboBox'ları ekle
                 SetComboBoxColumnForLookup(dataGridView, "ProjeID", "ProjeID", "Ad", "projeler");
                 SetComboBoxColumnForLookup(dataGridView, "ÇalışanID", "ÇalışanID", "AdSoyad", "çalışanlar");
+                if (dataGridView.Columns.Contains("ProjeAdi")) 
+                { 
+                    dataGridView.Columns["ProjeAdi"].Visible = false; 
+                }
+                if (dataGridView.Columns.Contains("CalisanAdi")) 
+                { 
+                    dataGridView.Columns["CalisanAdi"].Visible = false; 
+                }
+                dataGridView.Columns["ProjeID"].HeaderText = "Proje Adı";
+                dataGridView.Columns["ÇalışanID"].HeaderText = "Çalışan Adı";
+                
             }
             catch (Exception ex)
             {
@@ -160,6 +171,13 @@ namespace sql_project
         private static void SetComboBoxColumnForLookup(DataGridView dataGridView, string columnName, string valueMember, string displayMember, string tableName)
         {
             var data = CRUD.list($"SELECT {valueMember}, {displayMember} FROM {tableName};");
+
+            // Boş veya NULL değeri içeren satırı ekle
+            DataRow nullRow = data.NewRow();
+            nullRow[valueMember] = DBNull.Value;
+            nullRow[displayMember] = "Yok";
+            data.Rows.InsertAt(nullRow, 0);
+
             if (dataGridView.Columns.Contains(columnName))
             {
                 DataGridViewComboBoxColumn comboBoxColumn = new DataGridViewComboBoxColumn
@@ -168,14 +186,39 @@ namespace sql_project
                     DisplayMember = displayMember,
                     ValueMember = valueMember,
                     HeaderText = columnName,
-                    DataPropertyName = valueMember,
-                    Name = columnName
+                    DataPropertyName = columnName,
+                    Name = columnName,
+                    ValueType = typeof(int?)
                 };
 
                 int columnIndex = dataGridView.Columns[columnName].Index;
                 dataGridView.Columns.RemoveAt(columnIndex);
                 dataGridView.Columns.Insert(columnIndex, comboBoxColumn);
+
+                // Mevcut satırları kontrol et ve eğer geçerli değilse NULL yap
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    if (row.Cells[columnName].Value != null && row.Cells[columnName].Value != DBNull.Value)
+                    {
+                        bool found = false;
+                        foreach (DataRow dataRow in data.Rows)
+                        {
+                            if (dataRow[valueMember].Equals(row.Cells[columnName].Value))
+                            {
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found)
+                        {
+                            row.Cells[columnName].Value = DBNull.Value; // Geçerli olmayan değerleri NULL yap
+                        }
+                    }
+                }
             }
         }
+
+
+
     }
 }

@@ -194,20 +194,37 @@ namespace sql_project
                     {
                         if (cell != null && cell.OwningColumn != null && cell.OwningColumn.Name != null)
                         {
-                            columnNames.Add(cell.OwningColumn.Name);
-                            values.Add(cell.Value ?? DBNull.Value);
+                            // ProjeAdı ve ÇalışanAdı alanlarını ProjeID ve ÇalışanID ile güncelle
+                            if (cell.OwningColumn.Name == "ProjeID" || cell.OwningColumn.Name == "ÇalışanID")
+                            {
+                                columnNames.Add(cell.OwningColumn.Name);
+                                values.Add(cell.Value ?? DBNull.Value);
+                            }
+                            else if (cell.OwningColumn.Name == "ProjeAdi")
+                            {
+                                columnNames.Add("ProjeID");
+                                values.Add(row.Cells["ProjeID"].Value ?? DBNull.Value);
+                            }
+                            else if (cell.OwningColumn.Name == "CalisanAdi")
+                            {
+                                columnNames.Add("ÇalışanID");
+                                values.Add(row.Cells["ÇalışanID"].Value ?? DBNull.Value);
+                            }
+                            else
+                            {
+                                columnNames.Add(cell.OwningColumn.Name);
+                                values.Add(cell.Value ?? DBNull.Value);
+                            }
                         }
                         else
                         {
                             // Eğer cell, OwningColumn veya Name null ise, bir hata mesajı veya başka bir işlem gerçekleştirin
                             MessageBox.Show("Hata: Hücre veya sütun adı null.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        // Sütun adı
-                          // Değer, boşsa DBNull olarak ekle
                     }
 
                     // Veritabanını güncelle
-                    string condition = $"id = {row.Cells["id"].Value}";  // Örnek: ID'yi kullanarak güncelle
+                    string condition = $"GörevID = {row.Cells["GörevID"].Value}";  // Örnek: ID'yi kullanarak güncelle
                     int result = CRUD.guncelle(tableName, columnNames, values, condition, mod);
 
                     if (result <= 0)
@@ -224,7 +241,8 @@ namespace sql_project
             }
         }
 
-        
+
+
         public static void Temizle(List<Control> controls)
         {
             foreach (var control in controls)
@@ -261,6 +279,7 @@ namespace sql_project
         {
             try
             {
+                // Ekleme modunda ise, kontrolleri temizle
                 if (modDurumu == Modder.ModDurumu.Ekle)
                 {
                     Temizle(controls);
@@ -286,18 +305,24 @@ namespace sql_project
                     // Silme modundaysa seçili satırı sil
                     foreach (DataGridViewRow row in dataGridView.SelectedRows)
                     {
-                        int id = Convert.ToInt32(row.Cells["id"].Value);
-                        string condition = $"id = {id}";
+                        // İlk sütunun adını al
+                        string firstColumnName = dataGridView.Columns[0].Name;
+                        var firstCellValue = row.Cells[firstColumnName].Value;
 
+                        // Koşulu oluştur
+                        string condition = firstCellValue != DBNull.Value
+                            ? $"{firstColumnName} = {Convert.ToInt32(firstCellValue)}"
+                            : $"{firstColumnName} IS NULL";
+
+                        // Silme işlemini gerçekleştir
                         int result = CRUD.sil(tableName, condition);
-
-                        if (result > 0)
+                        if (result <= 0)
                         {
-                            MessageBox.Show("Kayıt başarıyla silindi.");
+                            MessageBox.Show("Veri silinirken bir hata oluştu.");
                         }
                         else
                         {
-                            MessageBox.Show("Kayıt silinirken bir hata oluştu.");
+                            MessageBox.Show("Veri başarıyla silindi.");
                         }
                     }
                 }
@@ -307,6 +332,11 @@ namespace sql_project
                 MessageBox.Show("Hata: " + ex.Message);
             }
         }
+
+
+
+
+
 
 
 

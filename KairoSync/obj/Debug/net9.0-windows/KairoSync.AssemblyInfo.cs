@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KairoSync")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+592027d6bb657cecd205b0227e809ffd240c3ad0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15cf95959429969170b06ea6a2a3530058bd35a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("KairoSync")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KairoSync")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
