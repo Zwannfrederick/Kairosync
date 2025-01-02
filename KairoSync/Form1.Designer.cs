@@ -55,6 +55,7 @@
             Projelertablesec = new TableLayoutPanel();
             Projelerfilter = new Panel();
             Projelerfilterbox = new Panel();
+            Logop = new PictureBox();
             Projelerfiltericon = new PictureBox();
             Projelerlist = new DataGridView();
             Çalışanlar = new TabPage();
@@ -83,6 +84,7 @@
             Çalışantablesec = new TableLayoutPanel();
             Çalışanlarfilter = new Panel();
             Çalışanlarfilterbox = new Panel();
+            Logoç = new PictureBox();
             Çalışanlarfiltericon = new PictureBox();
             Çalışanlarlist = new DataGridView();
             Görevler = new TabPage();
@@ -112,6 +114,7 @@
             Görevlertablesec = new TableLayoutPanel();
             Görevlerfilter = new Panel();
             Görevlerfilterbox = new Panel();
+            Logog = new PictureBox();
             Görevlerfiltericon = new PictureBox();
             Görevlerlist = new DataGridView();
             contextMenuStrip1 = new ContextMenuStrip(components);
@@ -128,6 +131,7 @@
             Projelertablesec.SuspendLayout();
             Projelerfilter.SuspendLayout();
             Projelerfilterbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Logop).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Projelerfiltericon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Projelerlist).BeginInit();
             Çalışanlar.SuspendLayout();
@@ -142,6 +146,7 @@
             Çalışantablesec.SuspendLayout();
             Çalışanlarfilter.SuspendLayout();
             Çalışanlarfilterbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Logoç).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Çalışanlarfiltericon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Çalışanlarlist).BeginInit();
             Görevler.SuspendLayout();
@@ -156,6 +161,7 @@
             Görevlertablesec.SuspendLayout();
             Görevlerfilter.SuspendLayout();
             Görevlerfilterbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Logog).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Görevlerfiltericon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Görevlerlist).BeginInit();
             SuspendLayout();
@@ -483,6 +489,7 @@
             // 
             Projelerfilterbox.AutoSize = true;
             Projelerfilterbox.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Projelerfilterbox.Controls.Add(Logop);
             Projelerfilterbox.Controls.Add(Projelerfiltericon);
             Projelerfilterbox.Dock = DockStyle.Fill;
             Projelerfilterbox.Location = new Point(0, 0);
@@ -490,6 +497,17 @@
             Projelerfilterbox.Name = "Projelerfilterbox";
             Projelerfilterbox.Size = new Size(1364, 40);
             Projelerfilterbox.TabIndex = 0;
+            // 
+            // Logop
+            // 
+            Logop.Dock = DockStyle.Left;
+            Logop.Image = (Image)resources.GetObject("Logop.Image");
+            Logop.Location = new Point(0, 0);
+            Logop.Name = "Logop";
+            Logop.Size = new Size(200, 40);
+            Logop.SizeMode = PictureBoxSizeMode.StretchImage;
+            Logop.TabIndex = 2;
+            Logop.TabStop = false;
             // 
             // Projelerfiltericon
             // 
@@ -654,7 +672,7 @@
             Çalışanpanel.Size = new Size(294, 416);
             Çalışanpanel.TabIndex = 0;
             Çalışanpanel.TabStop = false;
-            Çalışanpanel.Text = "Proje Oluştur";
+            Çalışanpanel.Text = "Çalışan Ekle";
             Çalışanpanel.Visible = false;
             // 
             // Telno
@@ -847,6 +865,7 @@
             // 
             // Çalışanlarfilterbox
             // 
+            Çalışanlarfilterbox.Controls.Add(Logoç);
             Çalışanlarfilterbox.Controls.Add(Çalışanlarfiltericon);
             Çalışanlarfilterbox.Dock = DockStyle.Fill;
             Çalışanlarfilterbox.Location = new Point(0, 0);
@@ -854,6 +873,17 @@
             Çalışanlarfilterbox.Name = "Çalışanlarfilterbox";
             Çalışanlarfilterbox.Size = new Size(1364, 40);
             Çalışanlarfilterbox.TabIndex = 0;
+            // 
+            // Logoç
+            // 
+            Logoç.Dock = DockStyle.Left;
+            Logoç.Image = (Image)resources.GetObject("Logoç.Image");
+            Logoç.Location = new Point(0, 0);
+            Logoç.Name = "Logoç";
+            Logoç.Size = new Size(200, 40);
+            Logoç.SizeMode = PictureBoxSizeMode.StretchImage;
+            Logoç.TabIndex = 3;
+            Logoç.TabStop = false;
             // 
             // Çalışanlarfiltericon
             // 
@@ -866,6 +896,7 @@
             Çalışanlarfiltericon.SizeMode = PictureBoxSizeMode.StretchImage;
             Çalışanlarfiltericon.TabIndex = 1;
             Çalışanlarfiltericon.TabStop = false;
+            Çalışanlarfiltericon.Click += Çalışanlarfiltericon_Click;
             // 
             // Çalışanlarlist
             // 
@@ -885,6 +916,7 @@
             Çalışanlarlist.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Çalışanlarlist.Size = new Size(1364, 760);
             Çalışanlarlist.TabIndex = 1;
+            Çalışanlarlist.CellContentClick += Çalışanlarlist_CellContentClick;
             // 
             // Görevler
             // 
@@ -1222,6 +1254,7 @@
             // 
             // Görevlerfilterbox
             // 
+            Görevlerfilterbox.Controls.Add(Logog);
             Görevlerfilterbox.Controls.Add(Görevlerfiltericon);
             Görevlerfilterbox.Dock = DockStyle.Fill;
             Görevlerfilterbox.Location = new Point(0, 0);
@@ -1230,6 +1263,17 @@
             Görevlerfilterbox.Size = new Size(1364, 40);
             Görevlerfilterbox.TabIndex = 0;
             Görevlerfilterbox.Paint += Projelerfilterbox_Paint;
+            // 
+            // Logog
+            // 
+            Logog.Dock = DockStyle.Left;
+            Logog.Image = (Image)resources.GetObject("Logog.Image");
+            Logog.Location = new Point(0, 0);
+            Logog.Name = "Logog";
+            Logog.Size = new Size(200, 40);
+            Logog.SizeMode = PictureBoxSizeMode.StretchImage;
+            Logog.TabIndex = 3;
+            Logog.TabStop = false;
             // 
             // Görevlerfiltericon
             // 
@@ -1273,6 +1317,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(1734, 865);
             Controls.Add(Menü);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -1299,6 +1344,7 @@
             Projelerfilter.ResumeLayout(false);
             Projelerfilter.PerformLayout();
             Projelerfilterbox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)Logop).EndInit();
             ((System.ComponentModel.ISupportInitialize)Projelerfiltericon).EndInit();
             ((System.ComponentModel.ISupportInitialize)Projelerlist).EndInit();
             Çalışanlar.ResumeLayout(false);
@@ -1315,6 +1361,7 @@
             Çalışantablesec.ResumeLayout(false);
             Çalışanlarfilter.ResumeLayout(false);
             Çalışanlarfilterbox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)Logoç).EndInit();
             ((System.ComponentModel.ISupportInitialize)Çalışanlarfiltericon).EndInit();
             ((System.ComponentModel.ISupportInitialize)Çalışanlarlist).EndInit();
             Görevler.ResumeLayout(false);
@@ -1331,6 +1378,7 @@
             Görevlertablesec.ResumeLayout(false);
             Görevlerfilter.ResumeLayout(false);
             Görevlerfilterbox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)Logog).EndInit();
             ((System.ComponentModel.ISupportInitialize)Görevlerfiltericon).EndInit();
             ((System.ComponentModel.ISupportInitialize)Görevlerlist).EndInit();
             ResumeLayout(false);
@@ -1423,5 +1471,8 @@
         private TextBox Görevadamgün;
         private ComboBox Görevlerprojeseç;
         private ComboBox GörevlerÇalışanSeç;
+        private PictureBox Logop;
+        private PictureBox Logoç;
+        private PictureBox Logog;
     }
 }

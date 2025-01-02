@@ -21,8 +21,7 @@ namespace KairoSync
             çalýþancontrols.AddRange(new Control[] { Çalýþanad, Çalýþansoyad, Çalýþanemail, Çalýþandoðumdate, Alankod, Telno });
             projecontrols.AddRange(new Control[] { Projead, Projeacýklama, Projebaþlangýçdate, Projebitiþdate });
             görevlercontrols.AddRange(new Control[] { Görevad, Görevadamgün, Görevamac, Görevbaþlangýçdate, Görevbitiþdate, GörevlerÇalýþanSeç, Görevlerprojeseç });
-            Controller.BaslatGecikmeGuncelleme(Görevlerlist);
-            Controller.BaslatGecikmeGuncelleme(Projelerlist);
+            
         }
 
         private void LoadCountries()
@@ -43,10 +42,12 @@ namespace KairoSync
             Loaders.CalisanlariGetir(Çalýþanlarlist);
             Loaders.GorevleriGetir(Görevlerlist);
             LoadCountries();
-            Controller.BaslatGecikmeGuncelleme(Projelerlist);
-            Controller.BaslatGecikmeGuncelleme(Görevlerlist);
             Tools.Projecombobox(Görevlerprojeseç);
             Tools.Çalýþancombobox(GörevlerÇalýþanSeç);
+            Controller.BaslatGecikmeGuncelleme(Görevlerlist, "görevler");
+            Controller.BaslatGecikmeGuncelleme(Projelerlist, "projeler");
+            Controller.GecikmeHesapla(Projelerlist, "projeler");
+            Controller.GecikmeHesapla(Görevlerlist, "görevler");
         }
 
         private void Projelerfilterbox_Paint(object sender, PaintEventArgs e)
@@ -182,10 +183,20 @@ namespace KairoSync
         private void Çalýþaneklekaydet_Click(object sender, EventArgs e)
         {
             string? selectedValue = Alankod.SelectedValue?.ToString();
-            string telno = (string.IsNullOrEmpty(selectedValue) ? string.Empty : selectedValue) + " " + (string.IsNullOrEmpty(Telno.Text) ? "Hatalý telefon formatý lütfen güncelleyiniz" : Telno.Text);
+            string telno;
+            if (string.IsNullOrEmpty(selectedValue) || string.IsNullOrEmpty(Telno.Text))
+            {
+                telno = "Hatalý telefon formatý lütfen güncelleyiniz";
+            }
+            else
+            {
+                telno = selectedValue + " " + Telno.Text;
+            }
             Tools.CalisanEkle(Çalýþanad.Text + " " + Çalýþansoyad.Text, Çalýþanemail.Text, telno, Çalýþandoðumdate.Value.Date, calisanmod.aktifMod);
             Loaders.CalisanlariGetir(Çalýþanlarlist);
             Loaders.GorevleriGetir(Görevlerlist);
+           
+
         }
 
         private void Görevlerdüzenle_Click(object sender, EventArgs e)
@@ -231,29 +242,34 @@ namespace KairoSync
         {
             Tools.Kaydet(Görevlerlist, "görevler", görevmod.aktifMod);
             Loaders.GorevleriGetir(Görevlerlist);
+            Controller.GecikmeHesapla(Görevlerlist, "görevler");
+            görevmod.ModDegistir(Modder.ModDurumu.None, Görevlerlist);
         }
 
         private void Çalýþankaydet_Click(object sender, EventArgs e)
         {
             Tools.Kaydet(Çalýþanlarlist, "çalýþanlar", calisanmod.aktifMod);
             Loaders.CalisanlariGetir(Çalýþanlarlist);
+            calisanmod.ModDegistir(Modder.ModDurumu.None, Çalýþanlarlist);
         }
 
         private void Projelerkaydet_Click(object sender, EventArgs e)
         {
             Tools.Kaydet(Projelerlist, "projeler", projemod.aktifMod);
             Loaders.ProjeleriGetir(Projelerlist);
+            Controller.GecikmeHesapla(Projelerlist, "projeler");
+            projemod.ModDegistir(Modder.ModDurumu.None, Projelerlist);
         }
 
         private void Çalýþandüzenle_Click(object sender, EventArgs e)
         {
-            if (projemod.aktifMod == Modder.ModDurumu.Duzenle)
+            if (calisanmod.aktifMod == Modder.ModDurumu.Duzenle)
             {
-                projemod.ModDegistir(Modder.ModDurumu.None, Çalýþanlarlist);
+                calisanmod.ModDegistir(Modder.ModDurumu.None, Çalýþanlarlist);
             }
             else
             {
-                projemod.ModDegistir(Modder.ModDurumu.Duzenle, Çalýþanlarlist);
+                calisanmod.ModDegistir(Modder.ModDurumu.Duzenle, Çalýþanlarlist);
             }
         }
 
@@ -268,6 +284,7 @@ namespace KairoSync
             Tools.ProjeEkle(Projead.Text, Projebaþlangýçdate.Value, Projebitiþdate.Value, Projeacýklama.Text, projemod, Projelerlist);
             Loaders.ProjeleriGetir(Projelerlist);
             Loaders.GorevleriGetir(Görevlerlist);
+            Controller.GecikmeHesapla(Projelerlist, "projeler");
         }
 
         private void Projelersil_Click(object sender, EventArgs e)
@@ -298,13 +315,11 @@ namespace KairoSync
 
             if (selectedProje != null && selectedCalisan != null)
             {
-
                 int projeID = selectedProje.ProjeID;
                 int calisanID = selectedCalisan.CalisanID;
-
-
                 Tools.GorevEkle(Görevad.Text, Görevbaþlangýçdate.Value, Görevbitiþdate.Value, Görevadamgün.Text, projeID, calisanID, Görevamac.Text, görevmod.aktifMod);
                 Loaders.GorevleriGetir(Görevlerlist);
+                Controller.GecikmeHesapla(Görevlerlist, "görevler");
             }
             else
             {
@@ -316,6 +331,28 @@ namespace KairoSync
         {
             Tools.Sil(Görevlerlist, "görevler", görevmod.aktifMod, görevlercontrols);
             Loaders.GorevleriGetir(Görevlerlist);
+        }
+
+        private void Çalýþanlarlist_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Çalýþanlarfiltericon_Click(object sender, EventArgs e)
+        {
+            
+            if (Çalýþanlarlist.SelectedRows.Count > 0)
+            {
+                
+                Çalýþandetay çalýþandetay = new Çalýþandetay(Çalýþanlarlist);
+                çalýþandetay.Show();
+            }
+            else
+            {
+                
+                MessageBox.Show("Lütfen bir çalýþan seçin.", "Uyarý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }

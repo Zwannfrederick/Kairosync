@@ -54,6 +54,7 @@ namespace sql_project
             {
                 case ModDurumu.Ekle:
                     dataGridView.ClearSelection();
+                    dataGridView.ReadOnly = true;
                     // Ekleme moduna geçiş
                     break;
                 case ModDurumu.Duzenle:
@@ -62,6 +63,7 @@ namespace sql_project
                     break;
                 case ModDurumu.None:
                     dataGridView.ClearSelection();
+                    dataGridView.ReadOnly = true;
                     // Mod kapalı, sadece verileri görüntüle
                     break;
             }

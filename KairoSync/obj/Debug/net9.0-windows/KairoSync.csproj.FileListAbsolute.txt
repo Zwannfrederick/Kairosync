@@ -98,3 +98,4 @@ C:\Users\LENOVO\OneDrive\Masaüstü\Personal\Coding Examples\KairoSync\KairoSync
 C:\Users\LENOVO\OneDrive\Masaüstü\Personal\Coding Examples\KairoSync\KairoSync\obj\Debug\net9.0-windows\KairoSync.pdb
 C:\Users\LENOVO\OneDrive\Masaüstü\Personal\Coding Examples\KairoSync\KairoSync\obj\Debug\net9.0-windows\KairoSync.genruntimeconfig.cache
 C:\Users\LENOVO\OneDrive\Masaüstü\Personal\Coding Examples\KairoSync\KairoSync\obj\Debug\net9.0-windows\ref\KairoSync.dll
+C:\Users\LENOVO\OneDrive\Masaüstü\Personal\Coding Examples\Kairosync\KairoSync\obj\Debug\net9.0-windows\KairoSync.Çalışandetay.resources

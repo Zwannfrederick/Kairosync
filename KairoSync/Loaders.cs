@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.SQLite;
 using System.Windows.Forms;
 
 namespace sql_project
@@ -24,8 +25,7 @@ namespace sql_project
                 SetDateColumnFormat(dataGridView, "TamamTarihi");
 
                 // Düzenlenemez sütunlar
-                SetReadOnlyColumn(dataGridView, "ProjeID");
-                SetReadOnlyColumn(dataGridView, "Gecikme");
+                SetReadOnlyColumn(dataGridView, "ProjeID");;
                 dataGridView.Columns["TamamTarihi"].HeaderText = "Tamamlanma Tarihi";
                 dataGridView.Columns["BaşlangıçTarihi"].HeaderText = "Başlangıç Tarihi";
                 dataGridView.Columns["BitişTarihi"].HeaderText = "Bitiş Tarihi";
@@ -41,27 +41,33 @@ namespace sql_project
             try
             {
                 string query = @"
-                    SELECT 
-                        ÇalışanID, AdSoyad, Email, TelNo, DoğumTarihi 
-                    FROM çalışanlar;
-                ";
+            SELECT 
+                ÇalışanID, AdSoyad, Email, TelNo, DoğumTarihi
+            FROM çalışanlar;
+        ";
 
                 dataGridView.DataSource = CRUD.list(query);
 
-                // Tarih formatları
+                // Tarih formatlarını ayarla
                 SetDateColumnFormat(dataGridView, "DoğumTarihi");
 
-                // Düzenlenemez sütunlar
+                // Sadece okuma yapılacak kolonları ayarla
                 SetReadOnlyColumn(dataGridView, "ÇalışanID");
+
+                // Kolon başlıklarını düzenle
                 dataGridView.Columns["AdSoyad"].HeaderText = "Ad Soyad";
                 dataGridView.Columns["TelNo"].HeaderText = "Telefon Numarası";
                 dataGridView.Columns["DoğumTarihi"].HeaderText = "Doğum Tarihi";
+
+               
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Hata: " + ex.Message);
             }
         }
+
+
 
         public static void GorevleriGetir(DataGridView dataGridView)
         {
@@ -86,7 +92,6 @@ namespace sql_project
 
                 // Düzenlenemez sütunlar
                 SetReadOnlyColumn(dataGridView, "GörevID");
-                SetReadOnlyColumn(dataGridView, "Gecikme");
                 SetReadOnlyColumn(dataGridView, "ProjeAdi");
                 SetReadOnlyColumn(dataGridView, "CalisanAdi");
                 dataGridView.Columns["TamamTarihi"].HeaderText = "Tamamlanma Tarihi";
@@ -118,7 +123,55 @@ namespace sql_project
             }
         }
 
-        // Tarih formatlarını ayarlayan fonksiyon
+        public static void CalisanGorevleriniGetir(DataGridView dataGridViewCalisanlar, DataGridView dataGridViewGorevler)
+        {
+            try
+            {
+                if (dataGridViewCalisanlar.SelectedRows.Count > 0)
+                {
+                    int selectedCalisanID = Convert.ToInt32(dataGridViewCalisanlar.SelectedRows[0].Cells["ÇalışanID"].Value);
+
+                    string query = $@"
+                        SELECT 
+                            p.Ad AS ProjeAdi, g.Ad AS GörevAdi, 
+                            g.BaşlangıçTarihi, g.BitişTarihi, g.TamamTarihi, g.Durum
+                        FROM görevler g
+                        INNER JOIN projeler p ON g.ProjeID = p.ProjeID
+                        WHERE g.ÇalışanID = {selectedCalisanID};
+                    ";
+
+                    dataGridViewGorevler.DataSource = CRUD.list(query);
+
+                    
+                    SetDateColumnFormat(dataGridViewGorevler, "BaşlangıçTarihi");
+                    SetDateColumnFormat(dataGridViewGorevler, "BitişTarihi");
+                    SetDateColumnFormat(dataGridViewGorevler, "TamamTarihi");
+
+                    
+                    SetReadOnlyColumn(dataGridViewGorevler, "ProjeAdi");
+                    SetReadOnlyColumn(dataGridViewGorevler, "GörevAdi");
+
+                    dataGridViewGorevler.Columns["ProjeAdi"].HeaderText = "Proje Adı";
+                    dataGridViewGorevler.Columns["GörevAdi"].HeaderText = "Görev Adı";
+                    dataGridViewGorevler.Columns["BaşlangıçTarihi"].HeaderText = "Başlangıç Tarihi";
+                    dataGridViewGorevler.Columns["BitişTarihi"].HeaderText = "Bitiş Tarihi";
+                    dataGridViewGorevler.Columns["TamamTarihi"].HeaderText = "Tamamlanma Tarihi";
+                    dataGridViewGorevler.Columns["Durum"].HeaderText = "Görev Durumu";  
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen bir çalışan seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
+        }
+
+
+
+
         private static void SetDateColumnFormat(DataGridView dataGridView, string columnName)
         {
             if (dataGridView != null && dataGridView.Columns.Contains(columnName))

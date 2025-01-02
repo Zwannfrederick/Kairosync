@@ -22,7 +22,7 @@ namespace sql_project
 
         public static void CalisanEkle(string? adSoyad, string? email, string? telNo, DateTime? dogumTarihi, Modder.ModDurumu mod)
         {
-            // Parametrelerin geçerliliğini kontrol et
+            
             if (string.IsNullOrEmpty(adSoyad))
             {
                 MessageBox.Show("Lütfen çalışan adı ve soyadı giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -45,11 +45,11 @@ namespace sql_project
             }
 
 
-            string tableName = "çalışanlar";  // Tablo adı
-            List<string> columnNames = new List<string> { "AdSoyad", "Email", "TelNo", "DoğumTarihi" };  // Sütun adları
-            List<object> values = new List<object> { adSoyad, email, telNo, dogumTarihi };  // Değerler
+            string tableName = "çalışanlar";  
+            List<string> columnNames = new List<string> { "AdSoyad", "Email", "TelNo", "DoğumTarihi" };  
+            List<object> values = new List<object> { adSoyad, email, telNo, dogumTarihi };  
 
-            // Ekleme işlemi
+            
             int result = CRUD.ekle(tableName, columnNames, values, mod);
 
             if (result > 0)
@@ -66,11 +66,11 @@ namespace sql_project
 
         public static void ProjeEkle(string? ad, DateTime? baslangicTarihi, DateTime? bitisTarihi, string? aciklama, Modder mod, DataGridView dataGridView)
         {
-            // Parametrelerin geçerliliğini kontrol et
+            
             if (string.IsNullOrEmpty(ad))
             {
                 MessageBox.Show("Lütfen proje adı giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;  // İşlem sonlandırılır
+                return;  
             }
             if (baslangicTarihi == default(DateTime) || !baslangicTarihi.HasValue)
             {
@@ -83,13 +83,13 @@ namespace sql_project
                 return;
             }
 
-            string tableName = "projeler";  // Tablo adı
-            List<string> columnNames = new List<string> { "Ad", "BaşlangıçTarihi", "BitişTarihi", "Açıklama" };  // Sütun adları
+            string tableName = "projeler";  
+            List<string> columnNames = new List<string> { "Ad", "BaşlangıçTarihi", "BitişTarihi", "Açıklama" };  
 #pragma warning disable CS8604 // Olası null başvuru bağımsız değişkeni.
             List<object> values = new List<object> { ad, baslangicTarihi, bitisTarihi.HasValue ? (object)bitisTarihi.Value : DBNull.Value, aciklama };  // Değerler
 #pragma warning restore CS8604 // Olası null başvuru bağımsız değişkeni.
 
-            // Ekleme işlemi
+            
             int result = CRUD.ekle(tableName, columnNames, values, mod.aktifMod);
 
             if (result > 0)
@@ -108,11 +108,11 @@ namespace sql_project
         public class Proje
         {
             public int ProjeID { get; set; }
-            public string? Ad { get; set; }  // Nullable string
+            public string? Ad { get; set; }  
 
             public override string ToString()
             {
-                return Ad ?? string.Empty; // Eğer Ad null ise boş string döndürülür
+                return Ad ?? string.Empty; 
             }
         }
 
@@ -124,7 +124,7 @@ namespace sql_project
 
             public override string ToString()
             {
-                return AdSoyad ?? string.Empty; // ComboBox'ta görüntülenecek
+                return AdSoyad ?? string.Empty; 
             }
         }
 
@@ -180,37 +180,18 @@ namespace sql_project
         {
             try
             {
-                // DataGridView'deki verileri alalım
                 foreach (DataGridViewRow row in dataGridView.Rows)
                 {
-                    if (row.IsNewRow) continue;  // Yeni satırsa atla
+                    if (row.IsNewRow) continue;
 
-                    // Her satırdaki veriyi al ve güncelle
-                    List<string> columnNames = new List<string>();  // Güncellenmek istenen sütunlar
-                    List<object> values = new List<object>();  // Güncellenen değerler
+                    List<string> columnNames = new List<string>();
+                    List<object> values = new List<object>();
 
-                    // Satırdaki her hücreyi kontrol et
                     foreach (DataGridViewCell cell in row.Cells)
                     {
                         if (cell != null && cell.OwningColumn != null && cell.OwningColumn.Name != null)
                         {
-                            // ProjeAdı ve ÇalışanAdı alanlarını ProjeID ve ÇalışanID ile güncelle
-                            if (cell.OwningColumn.Name == "ProjeID" || cell.OwningColumn.Name == "ÇalışanID")
-                            {
-                                columnNames.Add(cell.OwningColumn.Name);
-                                values.Add(cell.Value ?? DBNull.Value);
-                            }
-                            else if (cell.OwningColumn.Name == "ProjeAdi")
-                            {
-                                columnNames.Add("ProjeID");
-                                values.Add(row.Cells["ProjeID"].Value ?? DBNull.Value);
-                            }
-                            else if (cell.OwningColumn.Name == "CalisanAdi")
-                            {
-                                columnNames.Add("ÇalışanID");
-                                values.Add(row.Cells["ÇalışanID"].Value ?? DBNull.Value);
-                            }
-                            else
+                            if (cell.OwningColumn.Name != "ProjeAdi" && cell.OwningColumn.Name != "CalisanAdi")
                             {
                                 columnNames.Add(cell.OwningColumn.Name);
                                 values.Add(cell.Value ?? DBNull.Value);
@@ -218,22 +199,25 @@ namespace sql_project
                         }
                         else
                         {
-                            // Eğer cell, OwningColumn veya Name null ise, bir hata mesajı veya başka bir işlem gerçekleştirin
                             MessageBox.Show("Hata: Hücre veya sütun adı null.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
 
-                    // Veritabanını güncelle
-                    string condition = $"GörevID = {row.Cells["GörevID"].Value}";  // Örnek: ID'yi kullanarak güncelle
+                    string condition = tableName switch
+                    {
+                        "görevler" => $"GörevID = {row.Cells["GörevID"].Value}",
+                        "projeler" => $"ProjeID = {row.Cells["ProjeID"].Value}",
+                        "çalışanlar" => $"ÇalışanID = {row.Cells["ÇalışanID"].Value}",
+                        _ => throw new InvalidOperationException("Geçersiz tablo adı.")
+                    };
+
                     int result = CRUD.guncelle(tableName, columnNames, values, condition, mod);
 
                     if (result <= 0)
                     {
-                        MessageBox.Show("Veri güncellenirken bir hata oluştu.");
+                        MessageBox.Show($"Veri {tableName} tablosunda güncellenirken bir hata oluştu.");
                     }
                 }
-
-                MessageBox.Show("Değişiklikler başarıyla kaydedildi.");
             }
             catch (Exception ex)
             {
@@ -243,23 +227,26 @@ namespace sql_project
 
 
 
+
+
+
         public static void Temizle(List<Control> controls)
         {
             foreach (var control in controls)
             {
-                if (control is TextBox textBox) // Eğer kontrol TextBox ise
+                if (control is TextBox textBox) 
                 {
-                    textBox.Clear(); // TextBox'ı temizle
+                    textBox.Clear(); 
                 }
-                else if (control is RichTextBox richTextBox) // Eğer kontrol RichTextBox ise
+                else if (control is RichTextBox richTextBox) 
                 {
-                    richTextBox.Clear(); // RichTextBox'ı temizle
+                    richTextBox.Clear(); 
                 }
-                else if (control is DateTimePicker dateTimePicker) // Eğer kontrol DateTimePicker ise
+                else if (control is DateTimePicker dateTimePicker) 
                 {
-                    dateTimePicker.Value = DateTime.Now; // DateTimePicker'ı sıfırla
+                    dateTimePicker.Value = DateTime.Now; 
                 }
-                else if (control is ComboBox comboBox) // Eğer kontrol ComboBox ise
+                else if (control is ComboBox comboBox) 
                 {
                     if (comboBox.Items.Contains("+90"))
                     {
@@ -268,9 +255,9 @@ namespace sql_project
                     else
                     {
                         comboBox.SelectedIndex = -1;
-                    } // ComboBox'ı temizle
+                    } 
                 }
-                // Diğer kontrol türleri için benzer işlemler eklenebilir
+                
             }
         }
 
@@ -279,14 +266,14 @@ namespace sql_project
         {
             try
             {
-                // Ekleme modunda ise, kontrolleri temizle
+                
                 if (modDurumu == Modder.ModDurumu.Ekle)
                 {
                     Temizle(controls);
                 }
                 else if (modDurumu == Modder.ModDurumu.Duzenle)
                 {
-                    // Düzenleme modundaysa DataGridView'i orijinal haline döndür
+                    
                     if (tableName.Equals("görevler", StringComparison.OrdinalIgnoreCase))
                     {
                         Loaders.GorevleriGetir(dataGridView);
@@ -302,19 +289,19 @@ namespace sql_project
                 }
                 else
                 {
-                    // Silme modundaysa seçili satırı sil
+                    
                     foreach (DataGridViewRow row in dataGridView.SelectedRows)
                     {
-                        // İlk sütunun adını al
+                        
                         string firstColumnName = dataGridView.Columns[0].Name;
                         var firstCellValue = row.Cells[firstColumnName].Value;
 
-                        // Koşulu oluştur
+                        
                         string condition = firstCellValue != DBNull.Value
                             ? $"{firstColumnName} = {Convert.ToInt32(firstCellValue)}"
                             : $"{firstColumnName} IS NULL";
 
-                        // Silme işlemini gerçekleştir
+                        
                         int result = CRUD.sil(tableName, condition);
                         if (result <= 0)
                         {
@@ -344,7 +331,7 @@ namespace sql_project
         {
             try
             {
-                // Parametrelerin geçerliliğini kontrol et
+                
                 if (string.IsNullOrEmpty(ad))
                 {
                     MessageBox.Show("Lütfen görev adı giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -408,10 +395,5 @@ namespace sql_project
                 MessageBox.Show("Hata: " + ex.Message);
             }
         }
-
-
-
-
-
     }
 }
