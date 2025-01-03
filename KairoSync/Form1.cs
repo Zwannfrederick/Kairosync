@@ -1,8 +1,10 @@
 using sql_project;
 using System.Formats.Asn1;
+using System.Globalization;
 using System.Windows.Forms;
 using static sql_project.Tools;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace KairoSync
 {
@@ -183,16 +185,26 @@ namespace KairoSync
         private void Çalýþaneklekaydet_Click(object sender, EventArgs e)
         {
             string? selectedValue = Alankod.SelectedValue?.ToString();
-            string telno;
+            string? telno;
+            string? ad = Çalýþanad.Text;
+            string? soyad = Çalýþansoyad.Text;
+            ad = ad ?? string.Empty;
+            soyad = soyad ?? string.Empty;
+
+            TextInfo textInfo = new CultureInfo("tr-TR", false).TextInfo;
+            string capitalizedAd = textInfo.ToTitleCase(ad.ToLower());
+            string capitalizedSoyad = textInfo.ToTitleCase(soyad.ToLower());
             if (string.IsNullOrEmpty(selectedValue) || string.IsNullOrEmpty(Telno.Text))
             {
-                telno = "Hatalý telefon formatý lütfen güncelleyiniz";
+                MessageBox.Show("Hatalý telefon formatý lütfen güncelleyiniz");
+                telno = string.Empty;
             }
             else
             {
-                telno = selectedValue + " " + Telno.Text;
+                telno = selectedValue + Telno.Text.Trim();
             }
-            Tools.CalisanEkle(Çalýþanad.Text + " " + Çalýþansoyad.Text, Çalýþanemail.Text, telno, Çalýþandoðumdate.Value.Date, calisanmod.aktifMod);
+            
+            Tools.CalisanEkle(capitalizedAd + " " + capitalizedSoyad, Çalýþanemail.Text, telno, Çalýþandoðumdate.Value.Date, calisanmod.aktifMod);
             Loaders.CalisanlariGetir(Çalýþanlarlist);
             Loaders.GorevleriGetir(Görevlerlist);
            

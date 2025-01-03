@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+
 
 namespace sql_project
 {
@@ -19,7 +21,15 @@ namespace sql_project
                 MessageBox.Show("Hata: " + ex.Message);
             }
         }
+        public static bool IsValidEmail(string email)
+        {
+            // E-posta formatı için regex deseni
+            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
 
+            // Regex ile e-posta kontrolü
+            Regex regex = new Regex(pattern);
+            return regex.IsMatch(email);
+        }
         public static void CalisanEkle(string? adSoyad, string? email, string? telNo, DateTime? dogumTarihi, Modder.ModDurumu mod)
         {
             
@@ -180,6 +190,7 @@ namespace sql_project
         {
             try
             {
+                
                 foreach (DataGridViewRow row in dataGridView.Rows)
                 {
                     if (row.IsNewRow) continue;
@@ -224,6 +235,7 @@ namespace sql_project
                 MessageBox.Show("Hata: " + ex.Message);
             }
         }
+
 
 
 
